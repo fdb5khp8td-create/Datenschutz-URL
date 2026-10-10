@@ -1,13 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>WorkBadge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071216">
+  <meta name="description" content="WorkBadge: Gestalte Nachrichten für dein kompatibles E-Ink-Schild und übertrage sie mit deinem iPhone per Bluetooth. Entdecke die Idee hinter WorkBadge.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="WorkBadge">
+  <meta property="og:title" content="WorkBadge – Dein Schild. Deine Botschaft.">
+  <meta property="og:description" content="Deine Nachricht, dein E-Ink-Schild: mit dem iPhone gestalten und per Bluetooth übertragen.">
+  <meta property="og:url" content="https://workbadge.de/">
+  <link rel="canonical" href="https://workbadge.de/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <title>WorkBadge – Dein Schild. Deine Botschaft.</title>
 </head>
 <body>
-  <h1>WorkBadge</h1>
-  <p>Die offizielle Webseite von WorkBadge.</p>
-  <p>Kontakt: workbadge@aol.com</p>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="logo" href="/" aria-label="WorkBadge – Startseite"><span class="logo-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="4" width="19" height="16" rx="4" stroke="currentColor" stroke-width="2"/><path d="m6.8 9 2.3 6 2.9-6 2.9 6 2.3-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>workbadge<span class="accent">.</span></a>
+    <nav class="desktop-nav" aria-label="Hauptnavigation"><a href="#funktionen">Funktionen</a><a href="#demo">Live-Vorschau</a><a href="#ablauf">So funktioniert's</a><a href="#faq">FAQ</a></nav>
+    <a class="header-cta" href="mailto:workbadge@aol.com?subject=Frage%20zu%20WorkBadge">Kontakt aufnehmen ↗</a>
+    <button class="menu-button" id="menu-toggle" type="button" aria-controls="mobile-nav" aria-expanded="false" aria-label="Menü öffnen">☰</button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation" hidden><a href="#funktionen">Funktionen</a><a href="#demo">Live-Vorschau</a><a href="#ablauf">So funktioniert's</a><a href="#faq">FAQ</a><a href="mailto:workbadge@aol.com">Kontakt</a></nav>
+</header>
+<main id="inhalt">
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <span class="pill"><span class="dot"></span> Die Idee hinter WorkBadge</span>
+      <h1 id="hero-heading">Dein Schild.<br><span class="accent">Deine Botschaft.</span></h1>
+      <p class="lede">Ein E-Ink-Schild, das zu deinem Alltag passt. Text auf dem iPhone auswählen, per Bluetooth übertragen und klar sichtbar anzeigen.</p>
+      <div class="cta-row"><a class="btn btn-primary" href="#demo">Vorschau ausprobieren <span class="icon-arrow" aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="#ablauf">So funktioniert's <span class="icon-arrow" aria-hidden="true">→</span></a></div>
+      <div class="trust-line"><span><b aria-hidden="true">✓</b> iPhone-App</span><span aria-hidden="true">·</span><span><b aria-hidden="true">✓</b> Bluetooth</span><span aria-hidden="true">·</span><span><b aria-hidden="true">✓</b> E-Ink</span></div>
+    </div>
+    <div class="hero-art" aria-label="Konzeptdarstellung: WorkBadge-App auf einem Smartphone und E-Ink-Schild mit Nachricht">
+      <div class="art-glow" aria-hidden="true"></div>
+      <div class="phone" aria-hidden="true"><div class="phone-time"><span>9:41</span><span>●●● ▰</span></div><div class="phone-app-head"><span>WorkBadge</span><span>◉</span></div><div class="phone-label">Dein Gerät</div><div class="phone-connected"><span style="color:#a8f3d1">●</span> Schild verbunden <span class="signal">↗</span></div><div class="phone-label">Nachricht</div><div class="phone-tile"><small>Aktueller Text</small><strong id="phone-text">Willkommen</strong></div><div class="phone-tile"><small>Verbindung</small><strong>Bluetooth</strong></div><div class="phone-action">Auf Schild übertragen</div></div>
+      <div class="badge-display" aria-hidden="true"><div class="badge-inner"><div class="badge-logo">workbadge.</div><div class="badge-main" id="hero-main">Willkommen</div><div class="badge-sub" id="hero-sub">SCHÖN, DASS DU DA BIST</div></div></div>
+      <div class="floating-note" aria-hidden="true"><span class="square">↗</span> Einfach übertragen</div>
+      <span class="visual-disclaimer">Konzeptdarstellung · nicht maßstabsgetreu</span>
+    </div>
+  </div>
+</section>
+<div class="stat-strip"><div class="shell strip-inner">
+  <div class="strip-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="2" width="18" height="20" rx="4"/><path d="M9 18h6M8 6h8"/></svg> Für das iPhone entwickelt</div>
+  <div class="strip-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 7 8 10-4 3V4l4 3-8 10"/></svg> Übertragung per Bluetooth</div>
+  <div class="strip-cell"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M7 10h10M7 14h7"/></svg> Klares E-Ink-Display</div>
+</div></div>
+<section class="section" id="funktionen" aria-labelledby="features-title"><div class="shell">
+  <div class="section-header"><div class="eyebrow">Das steckt dahinter</div><h2 id="features-title">Weniger Ablenkung.<br>Mehr Ausdruck.</h2><p class="section-intro">WorkBadge verbindet eine unkomplizierte iPhone-Bedienung mit einem digitalen Schild, das deine Botschaft in den Mittelpunkt stellt.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card"><div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7h14M5 12h11M5 17h8"/><path d="M20 16v5m-2.5-2.5h5"/></svg></div><h3>Eigene Nachrichten</h3><p>Kurze Hinweise oder persönliche Texte für dein Schild auswählen und gestalten.</p></article>
+    <article class="feature-card"><div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m8 7 8 10-4 3V4l4 3-8 10"/></svg></div><h3>Direkt per Bluetooth</h3><p>Deine Anzeige wird vom iPhone an kompatible WorkBadge-Hardware übertragen.</p></article>
+    <article class="feature-card"><div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div><h3>E-Ink statt Leuchtdisplay</h3><p>Kontrastreiche Darstellung mit papierähnlichem Look – bewusst reduziert.</p></article>
+    <article class="feature-card"><div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="3"/><path d="M9 18h6M8 7h8"/></svg></div><h3>Bedienung per iPhone</h3><p>Texte und Einstellungen bequem in einer mobilen Oberfläche verwalten.</p></article>
+    <article class="feature-card"><div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="17" height="11" rx="2"/><path d="M21 10v5M6 4h7"/></svg></div><h3>Akku-Informationen <span class="tag">In Arbeit</span></h3><p>Akku- und Ladestatus sollen direkt in der App nachvollziehbar sein, nicht auf dem Schild.</p></article>
+    <article class="feature-card"><div class="f-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></div><h3>Countdown <span class="tag">Premium geplant</span></h3><p>Eine Countdown-Anzeige ist als künftige Premium-Funktion vorgesehen.</p></article>
+  </div>
+</div></section>
+<section class="section demo" id="demo" aria-labelledby="demo-title"><div class="shell demo-grid">
+  <div><div class="eyebrow">Interaktive Vorschau</div><h2 id="demo-title">Was soll auf deinem Schild stehen?</h2><p class="section-intro">Probiere unterschiedliche Nachrichten aus und sieh, wie sie auf einem E-Ink-Schild wirken könnten.</p><div class="presets" role="group" aria-label="Beispielnachricht auswählen"><button class="preset" type="button" data-preset="welcome" aria-pressed="true">Willkommen</button><button class="preset" type="button" data-preset="meeting" aria-pressed="false">Im Gespräch</button><button class="preset" type="button" data-preset="soon" aria-pressed="false">Bin gleich zurück</button></div><p class="fineprint">Diese Vorschau ist eine Demonstration auf der Webseite und verbindet sich nicht mit einem Gerät.</p></div>
+  <div class="demo-board"><div class="mini-device"><div class="mini-screen" role="status" aria-live="polite" aria-atomic="true"><span class="sm-brand">workbadge.</span><strong id="demo-main">Willkommen</strong><small id="demo-sub">Schön, dass du da bist</small></div></div><div class="demo-caption"><span>Vorschau deines Schilds</span><span>● E-Ink-Look</span></div></div>
+</div></section>
+<section class="section" id="ablauf" aria-labelledby="steps-title"><div class="shell">
+  <div class="section-header"><div class="eyebrow">In drei Schritten</div><h2 id="steps-title">Von der Idee<br>auf dein Schild.</h2><p class="section-intro">Ein einfacher Ablauf für kompatible WorkBadge-Hardware mit passender Firmware.</p></div>
+  <div class="steps-grid"><article class="step"><div class="step-number">01</div><h3>App öffnen</h3><p>Starte die WorkBadge-App auf deinem iPhone und bereite deine Nachricht vor.</p></article><article class="step"><div class="step-number">02</div><h3>Schild verbinden</h3><p>Stelle eine Bluetooth-Verbindung zum unterstützten E-Ink-Gerät her.</p></article><article class="step"><div class="step-number">03</div><h3>Text übertragen</h3><p>Übertrage deine gewählte Nachricht und aktualisiere die Anzeige auf dem Schild.</p></article></div>
+  <div class="quote-bar"><strong>Gut zu wissen</strong><span>Die gezeigten Ansichten illustrieren das Konzept. Design, Verfügbarkeit und Funktionen können sich während der Entwicklung ändern.</span></div>
+</div></section>
+<section class="section" id="faq" aria-labelledby="faq-title" style="padding-top:28px"><div class="shell"><div class="section-header" style="margin-inline:auto;text-align:center"><div class="eyebrow">Häufig gefragt</div><h2 id="faq-title">Noch Fragen?</h2><p class="section-intro">Hier findest du Antworten zum aktuellen WorkBadge-Konzept.</p></div><div class="faq-list">
+  <details><summary>Welche Geräte sind kompatibel?</summary><p>WorkBadge wird für eine passende ESP32-S3-basierte E-Ink-Hardware entwickelt. Nicht jedes beliebige Bluetooth- oder E-Ink-Gerät wird automatisch unterstützt.</p></details>
+  <details><summary>Werden meine Nachrichten über das Internet übertragen?</summary><p>Für die Kernfunktion ist eine lokale Bluetooth-Übertragung vom iPhone zum verbundenen Schild vorgesehen. Details zur Datenverarbeitung findest du in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p></details>
+  <details><summary>Kann ich einen Countdown anzeigen?</summary><p>Eine Countdown-Anzeige ist als Premium-Funktion geplant. Ob und wann sie verfügbar wird, steht noch nicht fest.</p></details>
+  <details><summary>Wo finde ich die WorkBadge-App?</summary><p>Die iPhone-App befindet sich in Entwicklung bzw. Vorbereitung für die Veröffentlichung. Ein öffentlicher App-Store-Link wird ergänzt, sobald dieser verfügbar ist.</p></details>
+  <details><summary>Wie kann ich euch erreichen?</summary><p>Am einfachsten per E-Mail an <a href="mailto:workbadge@aol.com">workbadge@aol.com</a>.</p></details>
+</div></div></section>
+<section class="cta-section" id="kontakt"><div class="shell"><div class="cta-banner"><div><div class="eyebrow">Kontakt</div><h2>Eine Idee für WorkBadge?</h2><p>Du hast Fragen zur App, zur Hardware oder möchtest mehr erfahren? Schreib uns.</p></div><a class="btn btn-primary no-wrap" href="mailto:workbadge@aol.com?subject=Anfrage%20zu%20WorkBadge">E-Mail schreiben <span class="icon-arrow" aria-hidden="true">↗</span></a></div></div></section>
+</main>
+<footer class="site-footer"><div class="shell footer-inner"><div class="footer-brand"><a class="logo" href="/"><span class="logo-symbol" aria-hidden="true">W</span>workbadge<span class="accent">.</span></a><small>© <span id="year">2026</span> WorkBadge · Mit Liebe zum Detail entworfen.</small></div><nav class="footer-nav" aria-label="Rechtliche Informationen"><a href="/datenschutz/">Datenschutz</a><a href="/impressum/">Impressum</a><a href="mailto:workbadge@aol.com">Kontakt</a></nav></div></footer>
 </body>
-</html>x
+</html>
