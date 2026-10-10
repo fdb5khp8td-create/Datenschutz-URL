@@ -11,3 +11,9 @@
 @media(max-width:680px){.shell{width:calc(100% - 36px)}.header-row{height:70px}.brand{font-size:23px}.head-nav{gap:17px;font-size:13px}.hero{padding:53px 0 69px}.hero-grid{grid-template-columns:1fr;gap:45px}.hero h1{font-size:clamp(46px,11vw,65px)}.hero-copy>p:not(.hero-small){font-size:16px}.hero-figure{width:min(100%,430px);margin:auto}.hero-figure img{height:470px}.look{padding:70px 0}.section-title{display:block}.section-title>p{margin:17px 0 0;max-width:420px}.photos{grid-template-columns:1fr;gap:18px}.photo img{height:460px}.contact{padding:60px 0 75px}.contact-inner{display:block;padding:29px 25px}.contact .btn{margin-top:24px;white-space:normal;width:100%}.footer-row{align-items:start;flex-direction:column;gap:18px}.legal{padding-top:48px;padding-bottom:70px}.legal h1{font-size:48px}}
 @media(max-width:360px){.brand{font-size:19px}.brand-symbol{width:29px;height:29px;font-size:19px}.head-nav{gap:10px;font-size:12px}.hero h1{font-size:45px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* WorkBadge Original-App-Icon */
+.brand-app-icon{display:block;width:38px;height:38px;object-fit:contain;border-radius:10px;margin-right:11px;flex-shrink:0}
+.hero-app-icon{display:inline-flex;align-items:center;gap:16px;color:#b9d4cc;font-size:14px;font-weight:700;margin:0 0 12px}
+.hero-app-icon img{display:block;width:78px;height:78px;object-fit:contain;border-radius:19px;box-shadow:0 12px 35px #0006}
+@media(max-width:360px){.brand-app-icon{width:29px;height:29px;border-radius:8px;margin-right:8px}}
