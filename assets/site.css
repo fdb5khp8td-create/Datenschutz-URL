@@ -43,3 +43,13 @@
 @media(max-width:680px){.hero{padding:44px 0 56px}.hero-grid{grid-template-columns:1fr;gap:28px}.hero-film{width:min(100%,380px)}
  .features{padding:64px 0 70px}.feature-list{grid-template-columns:1fr;gap:14px}.photos{grid-template-columns:1fr}.photo img{height:460px}}
 @media(max-width:480px){.head-nav a[href="/#einblicke"]{display:none}}
+/* App Store */
+a.hero-app-icon:hover{color:#fff}.hero-app-icon span{display:flex;flex-direction:column;gap:3px}.hero-app-icon small{font-size:12px;font-weight:650;color:var(--accent)}
+.btn-store{gap:12px;padding:11px 20px 11px 16px;justify-content:flex-start}.btn-store span:last-child{display:flex;flex-direction:column;align-items:flex-start;font-size:16px;line-height:1.15}
+.btn-store small{font-size:11px;font-weight:700;letter-spacing:.04em;opacity:.75}
+.store-ic{width:26px;height:26px;border-radius:8px;background:#0a2d21;position:relative;flex:none}
+.store-ic::before{content:"";position:absolute;left:50%;top:5px;width:2.5px;height:11px;margin-left:-1.25px;border-radius:2px;background:var(--accent)}
+.store-ic::after{content:"";position:absolute;left:50%;top:11px;width:7px;height:7px;margin-left:-4.5px;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(45deg)}
+.btn-ghost{color:var(--ink);border:1px solid #4b8674a8;background:transparent}.btn-ghost:hover{color:var(--accent);border-color:var(--accent)}
+.contact-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:680px){.contact-actions{display:grid;gap:12px;margin-top:24px}.contact-actions .btn{margin-top:0;width:100%}.actions{gap:14px 22px}}
