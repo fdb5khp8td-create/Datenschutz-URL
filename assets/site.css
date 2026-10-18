@@ -17,3 +17,12 @@
 .hero-app-icon{display:inline-flex;align-items:center;gap:16px;color:#b9d4cc;font-size:14px;font-weight:700;margin:0 0 12px}
 .hero-app-icon img{display:block;width:78px;height:78px;object-fit:contain;border-radius:19px;box-shadow:0 12px 35px #0006}
 @media(max-width:360px){.brand-app-icon{width:29px;height:29px;border-radius:8px;margin-right:8px}}
+
+/* WorkBadge Video */
+.film{padding:20px 0 96px}
+.film .section-title>p{max-width:380px}
+.film-frame{position:relative;margin:0;border-radius:26px;overflow:hidden;border:1px solid #36544c;background:#0a1214;aspect-ratio:16/9;box-shadow:0 45px 95px #0007}
+.film-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.film-toggle{position:absolute;right:16px;bottom:16px;border:1px solid #ffffff2e;border-radius:999px;background:#0a1214c7;color:var(--ink);font:700 13px/1 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;padding:10px 16px;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.film-toggle:hover{color:var(--accent);border-color:#9bf1d066}
+@media(max-width:680px){.film{padding:8px 0 70px}.film-frame{aspect-ratio:9/16;width:min(100%,430px);margin:auto;border-radius:22px}.film .image-note{text-align:center}}
