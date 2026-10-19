@@ -53,3 +53,16 @@ a.hero-app-icon:hover{color:#fff}.hero-app-icon span{display:flex;flex-direction
 .btn-ghost{color:var(--ink);border:1px solid #4b8674a8;background:transparent}.btn-ghost:hover{color:var(--accent);border-color:var(--accent)}
 .contact-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end}
 @media(max-width:680px){.contact-actions{display:grid;gap:12px;margin-top:24px}.contact-actions .btn{margin-top:0;width:100%}.actions{gap:14px 22px}}
+/* Kaufen (Shopify) */
+.buy{padding:84px 0 20px}.buy-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:56px;align-items:center}
+.buy-copy h2{font-size:clamp(38px,4.6vw,59px);letter-spacing:-.064em;line-height:1.12;margin:17px 0 18px}.buy-copy>p{color:#abc1ba;font-size:17px;line-height:1.7;max-width:480px;margin:0}
+.buy-points{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:12px}.buy-points li{position:relative;padding-left:28px;color:#d4e6e1;font-size:15px;line-height:1.5}
+.buy-points li::before{content:"";position:absolute;left:2px;top:4px;width:7px;height:12px;border-right:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(45deg)}
+.buy-card{border:1px solid #2f5149;border-radius:24px;background:#0f1b1c;padding:30px;box-shadow:0 30px 70px #0006}
+.shop-product{min-height:120px}.shop-soon h3{font-size:26px;letter-spacing:-.045em;margin:16px 0 10px}.shop-soon p{color:#abc1ba;line-height:1.7;margin:0 0 24px}
+.soon-tag{display:inline-block;font-size:11px;font-weight:750;letter-spacing:.14em;text-transform:uppercase;color:#0a2d21;background:var(--accent);border-radius:999px;padding:6px 11px}
+.buy-legal{font-size:12px;color:#88a29e;margin:16px 0 0;line-height:1.6}[hidden]{display:none!important}
+@media(max-width:880px){.buy-grid{grid-template-columns:1fr;gap:32px}}
+@media(max-width:680px){.buy{padding:64px 0 10px}.buy-card{padding:24px 20px}.shop-soon .btn{width:100%}}
+@media(max-width:480px){.head-nav{gap:12px;font-size:13px}.brand{font-size:21px}.brand-app-icon{width:32px;height:32px;margin-right:9px}}
+@media(max-width:400px){.head-nav a[href="/#funktionen"]{display:none}}
