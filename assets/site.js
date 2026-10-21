@@ -19,9 +19,9 @@
 
 /* Shopify-Shop (Buy Button). Zum Aktivieren die drei Werte eintragen. */
 const WB_SHOP={
-  domain:'',          // z. B. 'workbadge.myshopify.com'
-  token:'',           // Storefront-Zugriffstoken aus dem Buy-Button-Kanal
-  productId:''        // Produkt-ID (Zahl) des WorkBadge-Produkts
+  domain:'6t1d70-k9.myshopify.com', // Shopify-Shop WorkBadge
+  token:'',           // Storefront-Zugriffstoken aus dem Buy-Button-Kanal – erst zum Shop-Start eintragen
+  productId:'16219532886348'        // Produkt „WorkBadge – Namensschild (E-Ink)“
 };
 (()=>{const node=document.getElementById('shop-product');if(!node||!WB_SHOP.domain||!WB_SHOP.token||!WB_SHOP.productId)return;
  const show=on=>document.querySelectorAll('[data-shop-on]').forEach(n=>n.hidden=!on)||document.querySelectorAll('[data-shop-off]').forEach(n=>n.hidden=on);
