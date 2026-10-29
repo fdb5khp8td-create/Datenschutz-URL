@@ -2,3 +2,16 @@
 @media(max-width:900px){.b3d-stage{height:370px}.b3d-bar{gap:20px}.b3d button{font-size:10px;padding:10px 12px}}
 @media(max-width:680px){.b3d-stage{height:270px}.b3d-bar{padding:18px 15px;flex-direction:column;gap:23px}.b3d-group{gap:6px}.b3d button{padding:9px 11px;font-size:9px;min-height:44px}.b3d-status{font-size:9px}.b3d{border-radius:12px}}
 @media(prefers-reduced-motion:reduce){.b3d-stage canvas,.b3d-poster{transition:none}}
+/* 3D-Modell direkt im Kopfbereich */
+.b3d-hero{border:0;border-radius:0;background:transparent;overflow:visible}
+.b3d-hero .product-art{position:relative}
+.b3d-hero .b3d-stage{position:absolute;inset:0;height:auto;z-index:1}
+.b3d-hero .art-label,.b3d-hero .art-index{z-index:2;pointer-events:none}
+.b3d-hero .b3d-status{bottom:4px}
+.b3d-hero .hero-3d-controls{flex-wrap:wrap;gap:12px 16px;margin-top:14px}
+.b3d-hero .hero-3d-controls>div{display:flex;padding:3px;background:#e9ede2;border:1px solid #dbe1d3;border-radius:99px;gap:0}
+.b3d-hero .hero-3d-controls button{font-size:10px;font-weight:500;border:0;border-radius:99px;padding:9px 14px;background:transparent;color:#596454;min-height:36px}
+.b3d-hero .hero-3d-controls button:hover{background:#ffffff80;border:0}
+.b3d-hero .hero-3d-controls button[aria-pressed=true]{background:#fff;color:var(--ink);box-shadow:0 2px 5px #20311a12}
+.b3d-hero.has-error .hero-3d-controls{display:none}
+@media(max-width:680px){.b3d-hero .hero-3d-controls button{padding:9px 11px}}

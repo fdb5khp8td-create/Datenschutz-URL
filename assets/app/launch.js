@@ -87,7 +87,7 @@ let raf=0,t0=0,skip=0,plan=reduce?'gentle':'full',running=false;
 function frame(now){
  const t=(now-t0)/1000+skip,o=pose(t,plan);lastPose=o;draw(o);
  phone.classList.toggle('is-revealing',o.revealing);
- if(o.done){running=false;phone.classList.add('is-open');canvas.style.visibility='hidden';show(current,false);return;}
+ if(o.done){running=false;phone.classList.add('is-open');canvas.style.visibility='hidden';if(current)show(current,false);return;}
  raf=requestAnimationFrame(frame);
 }
 function play(){
@@ -103,22 +103,22 @@ replay&&replay.addEventListener('click',play);
 const shot=document.getElementById('paShot'),siri=phone.querySelector('.ph-siri');
 const feats=[...document.querySelectorAll('.app-feat[data-show]')];
 const STATES={
- quick:  {target:'.pa-quick-h',hl:'.pa-quick',img:'status',tile:'status',chip:'meeting'},
- tiles:  {target:'.pa-tiles-h',hl:'.pa-tiles',img:'name',tile:'name'},
- contact:{target:'.pa-prev',hl:'.pa-dev',img:'qr',tile:'contact'},
- handy:  {target:'.pa-prev',hl:'.pa-dev',img:'handy',tile:'handy'},
- presets:{target:'.pa-presets',hl:'.pa-pre',img:'name',tile:'name'},
- siri:   {target:'.pa-prev',hl:'.pa-dev',img:'dnd',tile:'status',siri:true},
- games:  {target:'.ph-games',hl:'.pa-game',img:'name',tile:'name'}
+ quick:  {target:'.pa-quickcard',hl:'.pa-quickcard',img:'/assets/3d/display-status.png?v=2',tile:'status',chip:'meeting'},
+ tiles:  {target:'.pa-tiles-h',hl:'.pa-tiles',img:'/assets/app/tile-name.webp',tile:'name'},
+ contact:{target:'.pa-prev',hl:'.pa-dev',img:'/assets/app/tile-contact.webp',tile:'contact'},
+ handy:  {target:'.pa-prev',hl:'.pa-dev',img:'/assets/app/tile-handy.webp',tile:'handy'},
+ presets:{target:'.pa-presets',hl:'.pa-pre',img:'/assets/app/tile-name.webp',tile:'name'},
+ siri:   {target:'.pa-prev',hl:'.pa-dev',img:'/assets/3d/display-dnd.png?v=2',tile:'status',siri:true},
+ games:  {target:'.pa-buddy',hl:'.pa-buddy',img:'/assets/app/tile-momo.webp',tile:'buddy'}
 };
-let current='quick',scrollRaf=0;
+let current=null,scrollRaf=0;
 function scrollApp(y){cancelAnimationFrame(scrollRaf);const from=app.scrollTop,to=Math.max(0,Math.min(y,app.scrollHeight-app.clientHeight));
  if(reduce||Math.abs(to-from)<2){app.scrollTop=to;return;}const s0=performance.now(),d=650;
  (function step(n){const k=clamp((n-s0)/d);app.scrollTop=from+(to-from)*eIO(k);if(k<1)scrollRaf=requestAnimationFrame(step);})(s0);}
 function show(key,fromUser){
  const st=STATES[key];if(!st)return;current=key;
  feats.forEach(f=>f.setAttribute('aria-pressed',String(f.dataset.show===key)));
- if(shot&&st.img){const src='/assets/3d/display-'+st.img+'.png?v=2';if(!shot.src.endsWith(src)){shot.classList.remove('flash');void shot.offsetWidth;shot.classList.add('flash');setTimeout(()=>{shot.src=src;},140);}}
+ if(shot&&st.img){const src=st.img;if(!shot.src.endsWith(src)){shot.classList.remove('flash');void shot.offsetWidth;shot.classList.add('flash');setTimeout(()=>{shot.src=src;},140);}}
  app.querySelectorAll('.pa-tile').forEach(t=>t.classList.toggle('on',t.dataset.t===st.tile));
  app.querySelectorAll('.pa-q').forEach(q=>q.classList.toggle('on',q.dataset.q===st.chip));
  if(siri)siri.classList.toggle('on',!!st.siri);phone.classList.toggle('siri-on',!!st.siri);

@@ -96,7 +96,7 @@ async function start(){
   (function loop(){requestAnimationFrame(loop);if(!visible||document.hidden)return;controls.update();renderer.render(scene,camera);})();
   window.WorkBadge3D={T,scene,camera,controls,product,renderer,setView,setDisplay};
   renderer.render(scene,camera);root.classList.add('is-ready');buttons.forEach(button=>{button.disabled=false;});status.remove();
- }catch(err){status.textContent='Die 3D-Ansicht ist in diesem Browser nicht verfügbar. Die Produktvorschau oben zeigt dir das Schild.';root.classList.add('has-error');}
+ }catch(err){status.textContent='Die 3D-Ansicht ist in diesem Browser nicht verfügbar.';root.classList.add('has-error');}
 }
 
 function near(){const r=root.getBoundingClientRect();return r.top<innerHeight+400&&r.bottom>-400;}
