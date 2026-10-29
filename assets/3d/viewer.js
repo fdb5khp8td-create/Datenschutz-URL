@@ -10,7 +10,9 @@ function loadScript(src){return new Promise((ok,fail)=>{const s=document.createE
 async function start(){
  if(started)return;started=true;
  try{
-  await loadScript('/assets/3d/three-offline.js');
+  // Modell und Bibliothek gleichzeitig laden
+  const glbP=fetch('/assets/3d/workbadge.glb').then(r=>{if(!r.ok)throw new Error('Modell nicht geladen');return r.arrayBuffer();});
+  await loadScript('/assets/3d/three.min.js');
   const T=window.THREE,{OrbitControls}=window.THREEControls;
   const renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setClearColor(0x000000,0);
@@ -31,7 +33,7 @@ async function start(){
   const fill=new T.DirectionalLight(0xdff7ef,.8);fill.position.set(85,25,-65);scene.add(fill);
   const rim=new T.DirectionalLight(0xffffff,1.0);rim.position.set(-80,12,-85);scene.add(rim);
 
-  const buf=await (await fetch('/assets/3d/workbadge.glb')).arrayBuffer();
+  const buf=await glbP;
   const gltf=await new window.THREELoader.GLTFLoader().parseAsync(buf,'');
   const product=new T.Group();product.add(gltf.scene);gltf.scene.scale.setScalar(1000);scene.add(product);
 
@@ -46,8 +48,23 @@ async function start(){
    if(/Schraubenschlitz/.test(o.name)){o.material.polygonOffset=true;o.material.polygonOffsetFactor=-2;o.material.polygonOffsetUnits=-2;o.renderOrder=2;}
   });
 
+  // USB-C-Buchse in der Öffnung der rechten Schmalseite (Maße in mm, Buchse 8,9 × 3,2 mm)
+  (function usbc(){
+   const P={x:38.55,y:-6.0,z:-4.75};
+   function stadium(w,h){const s=new T.Shape(),r=w/2;s.moveTo(-r,-h/2+r);s.lineTo(-r,h/2-r);s.absarc(0,h/2-r,r,Math.PI,0,true);s.lineTo(r,-h/2+r);s.absarc(0,-h/2+r,r,0,Math.PI,true);return s;}
+   function along(geo,depth){geo.rotateY(Math.PI/2);geo.translate(-depth,0,0);return geo;}
+   const metal=new T.MeshStandardMaterial({color:0xc9ccd0,metalness:.85,roughness:.32,envMapIntensity:1});
+   const dark=new T.MeshStandardMaterial({color:0x0c0d0e,metalness:.1,roughness:.8});
+   const tongueMat=new T.MeshStandardMaterial({color:0x1a1b1d,metalness:.2,roughness:.55});
+   const ring=stadium(3.2,8.9);ring.holes.push(stadium(2.5,8.2));
+   const shell=new T.Mesh(along(new T.ExtrudeGeometry(ring,{depth:3.2,bevelEnabled:false,curveSegments:12}),3.2),metal);
+   const back=new T.Mesh(along(new T.ExtrudeGeometry(stadium(2.5,8.2),{depth:.2,bevelEnabled:false,curveSegments:12}),3.2),dark);
+   const tongue=new T.Mesh(new T.BoxGeometry(2.6,6.6,.7),tongueMat);tongue.position.set(-1.6,0,0);
+   const g=new T.Group();g.add(shell,back,tongue);g.position.set(P.x,P.y,P.z);g.name='USB-C';product.add(g);
+  })();
+
   const loader=new T.TextureLoader(),maps={};
-  await Promise.all(['status','name','focus'].map(async n=>{const t=await loader.loadAsync('/assets/3d/display-'+n+'.png');t.colorSpace=T.SRGBColorSpace;t.flipY=false;t.anisotropy=renderer.capabilities.getMaxAnisotropy();maps[n]=t;}));
+  await Promise.all(['name','status','handy','qr','dnd'].map(async n=>{const t=await loader.loadAsync('/assets/3d/display-'+n+'.png');t.colorSpace=T.SRGBColorSpace;t.flipY=false;t.anisotropy=renderer.capabilities.getMaxAnisotropy();maps[n]=t;}));
 
   const views={front:{pos:[0,0,145],target:[0,0,-5],flip:false},angle:{pos:[65,40,120],target:[0,-1,-5],flip:false},back:{pos:[28,26,140],target:[0,0,-5],flip:true}};
   const FRAME=78;
@@ -68,13 +85,14 @@ async function start(){
    s.phi=Math.max(.05,Math.min(Math.PI-.05,s.phi));camera.position.copy(controls.target).add(new T.Vector3().setFromSpherical(s));controls.update();});
   new ResizeObserver(size).observe(stage);
 
-  setView('angle');setDisplay('status');
+  setView('angle');setDisplay('name');
   controls.autoRotate=!matchMedia('(prefers-reduced-motion: reduce)').matches;rot.setAttribute('aria-pressed',String(controls.autoRotate));
   ['pointerdown','wheel'].forEach(ev=>renderer.domElement.addEventListener(ev,()=>{controls.autoRotate=false;rot.setAttribute('aria-pressed','false');},{passive:true}));
 
   let visible=true;new IntersectionObserver(es=>{visible=es[0].isIntersecting;}).observe(stage);
   (function loop(){requestAnimationFrame(loop);if(!visible)return;controls.update();renderer.render(scene,camera);})();
-  root.classList.add('is-ready');status.remove();
+  window.WorkBadge3D={T,scene,camera,controls,product,renderer,setView,setDisplay};
+  renderer.render(scene,camera);root.classList.add('is-ready');status.remove();
  }catch(err){status.textContent='Die 3D-Ansicht konnte in diesem Browser nicht geladen werden.';console.error(err);}
 }
 
@@ -86,4 +104,13 @@ if('IntersectionObserver' in window){
 }
 check();
 root.addEventListener('pointerenter',start,{once:true});
+// Im Hintergrund vorladen, sobald die Seite fertig ist – dann ist das Modell beim Scrollen schon da.
+function idle(){(window.requestIdleCallback||function(cb){setTimeout(cb,1200);})(start,{timeout:2500});}
+if(document.readyState==='complete')idle();else addEventListener('load',idle,{once:true});
+
+// Standbild genauso groß wie das spätere 3D-Modell platzieren
+const poster=root.querySelector('.b3d-poster');
+function placePoster(){if(!poster)return;const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;
+ const hh=Math.max(78,94/(w/h)),ph=h*78/hh;poster.style.height=ph+'px';poster.style.width=(ph*3)+'px';}
+placePoster();addEventListener('resize',placePoster);
 })();
