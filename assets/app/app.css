@@ -1,0 +1,97 @@
+/* WorkBadge · Abschnitt „Die App“ und „Spiele“ */
+.app-sec{padding:92px 0 96px;border-top:1px solid #213b38;background:radial-gradient(ellipse at 20% 40%,#173c3248,transparent 60%)}
+.app-grid{display:grid;grid-template-columns:minmax(260px,360px) 1fr;gap:72px;align-items:center}
+.app-phone-col{display:flex;flex-direction:column;align-items:center;gap:16px}
+.app-replay{font:inherit;font-size:13px;font-weight:700;color:#c3d7d1;background:transparent;border:1px solid #2a403e;border-radius:999px;padding:9px 16px;cursor:pointer}
+.app-replay:hover{border-color:#4b8674;color:var(--ink)}
+
+/* iPhone */
+.ph{width:min(100%,330px);padding:11px;border-radius:54px;background:linear-gradient(145deg,#2d3836,#121a19);box-shadow:0 0 0 1px #3c4b48,0 30px 80px #0008,inset 0 0 0 2px #0b100f}
+.ph-screen{--s:.8;position:relative;width:100%;aspect-ratio:390/844;border-radius:44px;overflow:hidden;background:#f5f5ed;cursor:pointer}
+.ph-app{position:absolute;left:0;top:0;width:390px;height:844px;transform:scale(var(--s));transform-origin:0 0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;
+ background:#f5f5ed;color:#15201d;font-family:-apple-system,"SF Pro Text",Inter,system-ui,sans-serif;transition:transform .6s ease-out}
+.ph-app::-webkit-scrollbar{display:none}
+.ph:not(.is-revealing):not(.is-open) .ph-app{transform:scale(var(--s)) scale(1.035)}
+.ph-launch{position:absolute;left:0;top:0;z-index:2;pointer-events:none}
+.ph-island{position:absolute;z-index:3;top:calc(11px*var(--s)/.8);left:50%;transform:translateX(-50%);width:31%;height:3.6%;border-radius:20px;background:#000}
+
+/* App-Inhalt (logische Punkte wie auf dem iPhone) */
+.pa{padding:0 16px 120px}
+.pa-status{display:flex;justify-content:space-between;align-items:center;height:54px;padding:0 14px 0 18px;font-size:16px;font-weight:600}
+.pa-status i{font-style:normal;font-size:12px;letter-spacing:1px}
+.pa-nav{display:flex;align-items:center;justify-content:center;position:relative;height:40px;font-size:17px;font-weight:600}
+.pa-nav span{position:absolute;right:2px;width:24px;height:24px;border-radius:50%;border:2px solid #0f6654;color:#0f6654;font-size:13px;display:grid;place-items:center;font-weight:700}
+.pa-card{background:#fff;border-radius:16px;padding:13px 14px;margin-top:12px}
+.pa-conn{display:flex;align-items:center;gap:12px}
+.pa-ok{width:30px;height:30px;border-radius:50%;background:#e2f3e8;display:grid;place-items:center;flex:none}
+.pa-ok:after{content:"";width:12px;height:7px;border-left:3px solid #1f9d55;border-bottom:3px solid #1f9d55;transform:translateY(-2px) rotate(-45deg)}
+.pa-conn b{display:block;font-size:15px}.pa-conn small{font-size:12px;color:#6b7470}.pa-conn em{margin-left:auto;font-style:normal;color:#0f6654;font-weight:600;font-size:14px}
+.pa-h{display:flex;justify-content:space-between;align-items:baseline;margin:20px 2px 8px}
+.pa-h b{font-size:20px;font-weight:700}.pa-h small{font-size:11px;color:#6b7470}.pa-h .chip{font-size:10px;font-weight:700;letter-spacing:1.4px;color:#0f6654}
+.pa-quick{display:flex;gap:8px;overflow:hidden}
+.pa-q{flex:none;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:600;background:#fff;border-radius:999px;padding:8px 13px}
+.pa-q:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c)}
+.pa-prev{background:#fff;border-radius:18px;padding:14px;margin-top:12px}
+.pa-chip{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#1f9d55;background:#e2f3e8;border-radius:999px;padding:4px 10px;margin-bottom:10px}
+.pa-dev{background:linear-gradient(160deg,#cfd2cd,#b5b9b4);border-radius:18px;padding:13px 16px;box-shadow:inset 0 1px 0 #fff8,0 3px 8px #0002}
+.pa-dev img{display:block;width:100%;border-radius:3px;aspect-ratio:250/122;object-fit:cover}
+.pa-field{margin-top:12px;border:1px solid #e3e5df;border-radius:11px;padding:9px 12px;font-size:14px}
+.pa-field small{display:block;font-size:11px;color:#6b7470}
+.pa-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pa-tile{background:#fff;border-radius:13px;padding:7px 7px 8px;border:1.5px solid transparent}
+.pa-tile.on{border-color:#0f6654}
+.pa-mini{background:#e8e7e0;border-radius:4px;aspect-ratio:250/122;padding:5px 6px;display:flex;flex-direction:column;justify-content:center;gap:2px;overflow:hidden;color:#1c1e1d}
+.pa-mini b{font-size:9.5px;line-height:1.05}.pa-mini span{font-size:6.5px;line-height:1.1}
+.pa-mini.inv{background:#1c1e1d;color:#e8e7e0;align-items:center}
+.pa-mini .qr{width:22px;height:22px;background:repeating-conic-gradient(#1c1e1d 0 25%,#e8e7e0 0 50%) 0 0/6px 6px;border:2px solid #1c1e1d}
+.pa-mini .row{display:flex;align-items:center;gap:5px}
+.pa-tile p{margin:6px 0 0;font-size:11px;font-weight:600;line-height:1.15}
+.pa-tile p small{display:block;font-weight:400;color:#6b7470;font-size:9.5px;margin-top:1px}
+.pa-game{border-radius:18px;overflow:hidden;background:#fff;margin-top:10px}
+.pa-game .pic{position:relative;height:150px;background:#123 center/cover}
+.pa-game .pic:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,#0008)}
+.pa-game .pic div{position:absolute;left:14px;bottom:12px;z-index:1;color:#fffbe6}
+.pa-game .pic small{display:block;font-size:8px;font-weight:600;letter-spacing:1.6px}
+.pa-game .pic b{font:400 25px/1.1 "New York",Georgia,serif}
+.pa-game .pic img{position:absolute;right:28px;bottom:2px;height:130px;z-index:1}
+.pa-game p{margin:0;padding:10px 14px 12px;font-size:12px;line-height:1.35;color:#2d3532}
+.pa-game p em{display:block;font-style:normal;font-weight:600;color:#0f6654;margin-top:3px}
+.pa-btn{position:sticky;bottom:18px;margin:18px 0 0;background:#0f6654;color:#fff;border-radius:14px;text-align:center;padding:15px;font-weight:600;font-size:16px;box-shadow:0 6px 20px #0f665455}
+.mem{background:linear-gradient(90deg,#0d1c21,#1c2b29)!important}
+.mem i{position:absolute;border-radius:50%;background:#f3c97a;filter:blur(3px)}
+.mem .mb{position:absolute;width:74px;padding:6px 7px;border-radius:8px;background:#cfd2cd;box-shadow:0 4px 10px #0006}
+.mem .mb span{display:flex;align-items:center;gap:5px;background:#e8e7e0;border-radius:3px;padding:4px 5px;font:600 10px/1 Inter,sans-serif;color:#1c1e1d}
+
+/* Funktionen */
+.app-feats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+.app-feat{border:1px solid #213b38;border-radius:18px;padding:18px 18px 16px;background:#0f1d1d}
+.app-feat h3{margin:8px 0 6px;font-size:17px;letter-spacing:-.02em}
+.app-feat p{margin:0;color:#adc2be;font-size:14px;line-height:1.6}
+.app-feat .f-tag{font-size:10px}
+
+/* Spiele */
+.games{margin-top:84px}
+.game-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.game{border:1px solid #213b38;border-radius:22px;overflow:hidden;background:#0f1d1d;display:flex;flex-direction:column}
+.game-pic{position:relative;height:230px;background:#123 center/cover}
+.game-pic:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,#000a)}
+.game-pic .t{position:absolute;left:22px;bottom:18px;z-index:1;color:#fffbe6}
+.game-pic small{display:block;font-size:10px;font-weight:700;letter-spacing:.17em;opacity:.92}
+.game-pic b{display:block;font:400 34px/1.1 Georgia,"New York",serif;margin-top:5px}
+.game-pic img{position:absolute;right:7%;bottom:0;height:88%;z-index:1;filter:drop-shadow(0 8px 14px #0006)}
+.game-body{padding:18px 22px 22px}
+.game-body p{margin:0 0 12px;color:#c3d7d1;font-size:15px;line-height:1.6}
+.game-body ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.game-body li{position:relative;padding-left:20px;color:#adc2be;font-size:14px;line-height:1.45}
+.game-body li:before{content:"";position:absolute;left:2px;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.game-pic.mem .mb{width:118px;padding:9px 10px;border-radius:12px}
+.game-pic.mem .mb span{font-size:15px;padding:7px 8px;gap:8px}
+.games-price{margin-top:22px;border:1px solid #2a403e;border-radius:18px;padding:18px 22px;display:flex;flex-wrap:wrap;gap:10px 30px;align-items:center;color:#c3d7d1;font-size:14px;line-height:1.55}
+.games-price b{color:var(--ink)}
+.games-price .free{color:var(--accent);font-weight:700}
+
+@media (max-width:900px){.app-grid{grid-template-columns:1fr;gap:44px}.app-feats{grid-template-columns:1fr}.game-grid{grid-template-columns:1fr}.app-sec{padding:66px 0 72px}.games{margin-top:64px}.game-pic{height:200px}}
+@media (prefers-reduced-motion: reduce){.ph-app{transition:none}}
+/* Kopfzeile: neue Menüpunkte auf schmalen Bildschirmen ausblenden */
+@media (max-width:860px){.head-nav a[href="/#in-3d"],.head-nav a[href="/#spiele"]{display:none}}
+@media (max-width:480px){.head-nav a[href="/#app"]{display:none}}

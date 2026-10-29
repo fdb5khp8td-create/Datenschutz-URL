@@ -12,6 +12,8 @@
   <script src="/assets/site.js?v=20261019a" defer></script>
   <link rel="stylesheet" href="/assets/3d/viewer.css?v=20261029e">
   <script src="/assets/3d/viewer.js?v=20261029e" defer></script>
+  <link rel="stylesheet" href="/assets/app/app.css?v=20261029b">
+  <script src="/assets/app/launch.js?v=20261029a" defer></script>
   <script defer data-domain="workbadge.de" src="https://plausible.io/js/script.outbound-links.js"></script>
   <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
   <title>WorkBadge – Dein digitales E-Ink-Schild</title>
@@ -23,7 +25,7 @@
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="site-header"><div class="shell header-row">
   <a class="brand" href="/" aria-label="WorkBadge – Startseite"><img class="brand-app-icon" src="/assets/app-icon.png" alt="" width="38" height="38">Work<span class="accent">Badge</span></a>
-  <nav class="head-nav" aria-label="Hauptnavigation"><a href="/#funktionen">Funktionen</a><a href="/#in-3d">3D</a><a href="/#einblicke">Einblicke</a><a href="/#kaufen">Kaufen</a><a href="/#kontakt">Kontakt</a></nav>
+  <nav class="head-nav" aria-label="Hauptnavigation"><a href="/#funktionen">Funktionen</a><a href="/#in-3d">3D</a><a href="/#app">App</a><a href="/#spiele">Spiele</a><a href="/#einblicke">Einblicke</a><a href="/#kaufen">Kaufen</a><a href="/#kontakt">Kontakt</a></nav>
 </div></header>
 
 <main id="main">
@@ -66,6 +68,81 @@
     </div>
   </div>
   <p class="b3d-hint">3D-Visualisierung. Displayinhalte sind Beispiele.</p>
+</div></section>
+<section id="app" class="app-sec"><div class="shell">
+  <div class="section-title"><div><span class="mini-label">DIE APP</span><h2>Alles mit einem Tipp.<br><span class="accent">Direkt auf dem Schild.</span></h2></div><p>So startet die WorkBadge-App auf dem iPhone. Tippe aufs iPhone, um die Animation zu überspringen.</p></div>
+  <div class="app-grid">
+    <div class="app-phone-col">
+      <div class="ph" id="appPhone">
+        <div class="ph-screen" role="img" aria-label="WorkBadge-App: Startanimation und Startseite mit Schild-Vorschau, Anzeigen und Spielen">
+          <div class="ph-app" aria-hidden="true"><div class="pa">
+            <div class="pa-status"><span>9:41</span><i>●●● ▮</i></div>
+            <div class="pa-nav">Dein Schild<span>?</span></div>
+            <div class="pa-card pa-conn"><span class="pa-ok"></span><div><b>Schild verbunden</b><small>WorkBadge-Namensschild · Firmware 1.4.9</small></div><em>Wechseln</em></div>
+            <div class="pa-h"><b style="font-size:16px">⚡ Schnellstatus</b><small>Ein Tipp zeigt ihn sofort</small></div>
+            <div class="pa-quick"><span class="pa-q" style="--c:#f08a24">Im Meeting</span><span class="pa-q" style="--c:#2fb35b">Ansprechbar</span><span class="pa-q" style="--c:#e5484d">Bitte nicht stören</span><span class="pa-q" style="--c:#3b82f6">Mittagspause</span></div>
+            <div class="pa-prev"><span class="pa-chip">● Auf dem Schild</span>
+              <div class="pa-dev"><img src="/assets/3d/display-name.png?v=2" alt="" width="250" height="122" loading="lazy"></div>
+              <div class="pa-field"><small>Name</small>Lena Hoffmann</div>
+              <div class="pa-field"><small>Zusatz</small>Produktdesign · Team UX</div>
+            </div>
+            <div class="pa-h"><b>Was soll dein Schild zeigen?</b></div>
+            <div class="pa-tiles">
+              <div class="pa-tile on"><div class="pa-mini"><b>Lena Hoffmann</b><span>Produktdesign</span></div><p>Name<small>Name &amp; Zusatz</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><div class="row"><b>Lena</b><img src="/assets/app/momo.webp" alt="" style="height:22px;filter:grayscale(1) contrast(1.6)"></div></div><p>Name + Momo<small>Name &amp; Begleiter</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><span>Sa 17.10. · 14:32 · 82 %</span><span>15:00 Team-Meeting</span><span>16:30 Kundentermin</span></div><p>Handy-Infos<small>Akku &amp; Termine</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><span>STATUS</span><b>Im Meeting</b><span>zurück um 14:30</span></div><p>Arbeitsstatus<small>Status &amp; Rückkehr</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><span>Hinweis</span><b>Bitte kurz anklopfen</b></div><p>Nachricht<small>Eigener Hinweis</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><div class="row"><b style="width:18px;height:18px;border-radius:50%;background:#1c1e1d"></b><b>Firma</b></div></div><p>Firmenlogo<small>Logo + Name</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><div class="row"><i class="qr"></i><b>Lena<br>Hoffmann</b></div></div><p>Name + QR-Code<small>Website &amp; Firma</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><div class="row"><span><b>Max M.</b><br>+49 173 …</span><i class="qr"></i></div></div><p>Visitenkarte<small>Kontakt per QR</small></p></div>
+              <div class="pa-tile"><div class="pa-mini"><b style="font-family:Georgia,serif;font-weight:400">Hallo!</b><span><i>frei gestaltet</i></span></div><p>Freier Text<small>Texte frei gestalten</small></p></div>
+            </div>
+            <div class="pa-h ph-games"><b>Spiele</b><span class="chip">2,99 € / MONAT</span></div>
+            <div class="pa-game"><div class="pic" style="background-image:url(/assets/app/begegnungen.webp)"><div><small>SCHILDER, DIE SICH FINDEN</small><b>Begegnungen</b></div></div><p>Dein Schild sammelt die WorkBadges, die du triffst – mit Leveln und Abzeichen.<em>Heute 4 · Lvl 3 Netzwerker</em></p></div>
+            <div class="pa-game"><div class="pic" style="background-image:url(/assets/app/bingo.webp)"><div><small>FRAGEN. SCANNEN. GEWINNEN.</small><b>Icebreaker-Bingo</b></div></div><p>Finde Leute, auf die eine Aussage zutrifft, und scanne den Code auf ihrem Schild.<em>Runde erstellen oder beitreten</em></p></div>
+            <div class="pa-game"><div class="pic" style="background-image:url(/assets/app/lichtung.webp)"><img src="/assets/app/momo.webp" alt=""><div><small>EIN KLEINER BEGLEITER</small><b>BadgeBuddies</b></div></div><p>Momo lebt in echter Zeit: ein paarmal am Tag pflegen, auf Abenteuer schicken.<em>Momo · Stufe 4</em></p></div>
+            <div class="pa-btn">➤ Auf Schild anzeigen</div>
+          </div></div>
+          <canvas class="ph-launch" aria-hidden="true"></canvas>
+        </div>
+      </div>
+      <button type="button" class="app-replay" id="appReplay">↻ Startanimation ansehen</button>
+    </div>
+    <div>
+      <div class="app-feats">
+        <div class="app-feat"><span class="f-tag">Schnellstatus</span><h3>Ein Tipp – schon auf dem Schild</h3><p>Im Meeting, Ansprechbar, Bitte nicht stören, Mittagspause, Gleich zurück, Im Homeoffice oder ein eigener Text. Auf Wunsch mit Rückkehrzeit: „In 15 Min“, „In 30 Min“, „In 1 Std“.</p></div>
+        <div class="app-feat"><span class="f-tag">Neun Anzeigen</span><h3>Für jeden Anlass</h3><p>Name, Name + Momo, Handy-Infos, Arbeitsstatus, Nachricht, Firmenlogo, Name + QR-Code, Visitenkarte und freier Text – jede Kachel zeigt vorab, wie es aussieht.</p></div>
+        <div class="app-feat"><span class="f-tag">Visitenkarte</span><h3>Kontakt per QR-Code</h3><p>Name, Firma, Telefon und E-Mail mit QR-Code. Wer ihn mit der Kamera scannt, übernimmt dich direkt in seine Kontakte – ohne App.</p></div>
+        <div class="app-feat"><span class="f-tag">Handy-Infos</span><h3>Termine, Schritte, Akku</h3><p>Die nächsten Termine und Erinnerungen vom iPhone. Die Anzeige hält sich selbst aktuell und zeichnet nur neu, wenn sich etwas ändert.</p></div>
+        <div class="app-feat"><span class="f-tag">Vorlagen</span><h3>Gespeichert und sofort da</h3><p>Bis zu 20 Vorlagen speichern und mit einem Tipp aufs Schild schicken – zum Beispiel „Namensschild“ fürs Büro und „Messe“ fürs Event.</p></div>
+        <div class="app-feat"><span class="f-tag">Siri &amp; Kurzbefehle</span><h3>Auch ganz ohne Tippen</h3><p>„Status in WorkBadge setzen“ per Siri – oder automatisch: Startet der Fokus „Arbeit“, zeigt das Schild „Bitte nicht stören“.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="games" id="spiele">
+    <div class="section-title"><div><span class="mini-label">SPIELE MIT DEM SCHILD</span><h2>Kennenlernen.<br><span class="accent">Spielerisch.</span></h2></div><p>Vier Spiele für Team-Events, Messen und den Büroalltag – das Schild spielt jeweils mit.</p></div>
+    <div class="game-grid">
+      <article class="game"><div class="game-pic" style="background-image:url(/assets/app/begegnungen.webp)"><div class="t"><small>SCHILDER, DIE SICH FINDEN</small><b>Begegnungen</b></div></div>
+        <div class="game-body"><p>Dein Schild sammelt per Funk die WorkBadges, die du triffst – mit Leveln und Abzeichen.</p>
+        <ul><li>Zähler „heute getroffen“, 6 Level und 7 Abzeichen</li><li>Das Schild zeigt „Neu getroffen: …“</li><li>Schritte-Duell: Treffen sich zwei Schilder, zeigen beide eure Schritte von heute</li></ul></div></article>
+      <article class="game"><div class="game-pic" style="background-image:url(/assets/app/bingo.webp)"><div class="t"><small>FRAGEN. SCANNEN. GEWINNEN.</small><b>Icebreaker-Bingo</b></div></div>
+        <div class="game-body"><p>Finde Leute, auf die eine Aussage zutrifft, und scanne den QR-Code auf ihrem Schild.</p>
+        <ul><li>Runde erstellen oder per Code beitreten, eigene 4×4-Karte</li><li>Punkte für Felder, Bingos und die volle Karte</li><li>Live-Rangliste für alle – am Ende Pokal und Medaille aufs Schild</li></ul></div></article>
+      <article class="game"><div class="game-pic" style="background-image:url(/assets/app/lichtung.webp)"><img src="/assets/app/momo.webp" alt="Momo, der kleine Begleiter aus BadgeBuddies" loading="lazy"><div class="t"><small>EIN KLEINER BEGLEITER</small><b>BadgeBuddies</b></div></div>
+        <div class="game-body"><p>Momo lebt in echter Zeit: ein paarmal am Tag pflegen und auf Abenteuer schicken.</p>
+        <ul><li>Füttern, spielen, ausruhen, Beeren suchen</li><li>Deine Schritte und Begegnungen helfen mit</li><li>Abenteuer, drei Formen ab Stufe 6 – und Momo auf dem Schild</li></ul></div></article>
+      <article class="game"><div class="game-pic mem"><i style="left:44%;top:16%;width:16px;height:16px;opacity:.35"></i><i style="left:58%;top:8%;width:11px;height:11px;opacity:.45"></i><i style="left:66%;top:44%;width:20px;height:20px;opacity:.25"></i><i style="left:84%;top:20%;width:13px;height:13px;opacity:.4"></i><i style="left:92%;top:52%;width:15px;height:15px;opacity:.3"></i>
+          <div class="mb" style="right:30%;top:16%;transform:rotate(-8deg)"><span>★ Mira</span></div>
+          <div class="mb" style="right:6%;top:10%;transform:rotate(6deg)"><span>☕︎ Ben</span></div>
+          <div class="mb" style="right:17%;top:42%;transform:rotate(-3deg)"><span>♥ Lea</span></div>
+          <div class="t"><small>NAMEN. SYMBOLE. ERINNERN.</small><b>Gedächtnisrunde</b></div></div>
+        <div class="game-body"><p>Alle tragen ein Spielsymbol. Erst kennenlernen, dann gemeinsam erinnern – ideal zum Kennenlernen im Team.</p>
+        <ul><li>Für 6 bis 20 Personen</li><li>Name und Spielsymbol stehen auf dem Schild</li><li>Gemeinsam statt gegeneinander</li></ul></div></article>
+    </div>
+    <div class="games-price"><span><b>Spiele-Abo:</b> 2,99 € pro Monat</span><span><b>Event-Pass für Teams:</b> einmalig 20 € – alle spielen 7 Tage mit einem Code</span><span class="free">Schild, Anzeigen und Nachrichten bleiben kostenlos.</span></div>
+  </div>
 </div></section>
 <section id="einblicke" class="look"><div class="shell">
   <div class="section-title"><div><span class="mini-label">WORKBADGE IM ALLTAG</span><h2>Einfach. Übersichtlich.<br><span class="accent">Individuell.</span></h2></div><p>Inhalte auswählen, das Schild verbinden und die Anzeige aktualisieren – direkt mit der App.</p></div>
