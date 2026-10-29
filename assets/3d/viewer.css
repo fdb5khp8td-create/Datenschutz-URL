@@ -1,0 +1,13 @@
+.model3d{padding:88px 0 96px;border-top:1px solid #213b38;background:radial-gradient(ellipse at 50% 55%,#173c3255,transparent 62%)}
+.b3d{position:relative;border:1px solid #213b38;border-radius:24px;background:linear-gradient(180deg,#0f1d1d,#0b1617);overflow:hidden}
+.b3d-stage{position:relative;height:min(62vh,560px);min-height:340px;cursor:grab;touch-action:none}
+.b3d-stage:active{cursor:grabbing}
+.b3d-stage canvas{display:block;width:100%;height:100%}
+.b3d-status{position:absolute;inset:0;display:grid;place-items:center;color:#88a29e;font-size:14px;text-align:center;padding:20px}
+.b3d-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:16px 18px;border-top:1px solid #213b38}
+.b3d-group{display:flex;gap:8px;flex-wrap:wrap}
+.b3d button{font:inherit;font-size:13px;font-weight:700;color:#c3d7d1;background:transparent;border:1px solid #2a403e;border-radius:999px;padding:9px 15px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.b3d button:hover{border-color:#4b8674;color:var(--ink)}
+.b3d button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#0a2d21}
+.b3d-hint{font-size:12px;color:#88a29e;margin:14px 2px 0}
+@media (max-width:760px){.model3d{padding:64px 0 70px}.b3d-stage{height:46vh;min-height:280px;max-height:420px}.b3d-bar{flex-direction:column;align-items:stretch}.b3d-group{justify-content:center}}

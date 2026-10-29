@@ -10,6 +10,8 @@
   <link rel="preload" as="image" href="/assets/video/workbadge-film-hochkant-poster.jpg">
   <link rel="stylesheet" href="/assets/site.css?v=20261019a">
   <script src="/assets/site.js?v=20261019a" defer></script>
+  <link rel="stylesheet" href="/assets/3d/viewer.css?v=20261029a">
+  <script src="/assets/3d/viewer.js?v=20261029a" defer></script>
   <script defer data-domain="workbadge.de" src="https://plausible.io/js/script.outbound-links.js"></script>
   <script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
   <title>WorkBadge – Dein digitales E-Ink-Schild</title>
@@ -21,7 +23,7 @@
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="site-header"><div class="shell header-row">
   <a class="brand" href="/" aria-label="WorkBadge – Startseite"><img class="brand-app-icon" src="/assets/app-icon.png" alt="" width="38" height="38">Work<span class="accent">Badge</span></a>
-  <nav class="head-nav" aria-label="Hauptnavigation"><a href="/#funktionen">Funktionen</a><a href="/#einblicke">Einblicke</a><a href="/#kaufen">Kaufen</a><a href="/#kontakt">Kontakt</a></nav>
+  <nav class="head-nav" aria-label="Hauptnavigation"><a href="/#funktionen">Funktionen</a><a href="/#in-3d">3D</a><a href="/#einblicke">Einblicke</a><a href="/#kaufen">Kaufen</a><a href="/#kontakt">Kontakt</a></nav>
 </div></header>
 
 <main id="main">
@@ -54,6 +56,17 @@
   </ul>
 </div></section>
 
+<section id="in-3d" class="model3d"><div class="shell">
+  <div class="section-title"><div><span class="mini-label">IN 3D ANSEHEN</span><h2>Dreh dein Schild.<br><span class="accent">Von allen Seiten.</span></h2></div><p>Mit Maus oder Finger drehen, zoomen und zwischen Anzeigen wechseln.</p></div>
+  <div class="b3d" id="badge3d">
+    <div class="b3d-stage"><p class="b3d-status">3D-Ansicht wird geladen …</p></div>
+    <div class="b3d-bar">
+      <div class="b3d-group" role="group" aria-label="Ansicht"><button type="button" data-view="angle" aria-pressed="true">Perspektive</button><button type="button" data-view="front" aria-pressed="false">Vorderseite</button><button type="button" data-view="back" aria-pressed="false">Rückseite</button><button type="button" class="b3d-rotate" aria-pressed="false" aria-label="Automatisch drehen">↻ Drehen</button></div>
+      <div class="b3d-group" role="group" aria-label="Anzeige"><button type="button" data-display="status" aria-pressed="true">Status</button><button type="button" data-display="name" aria-pressed="false">Name</button><button type="button" data-display="focus" aria-pressed="false">Fokuszeit</button></div>
+    </div>
+  </div>
+  <p class="b3d-hint">3D-Visualisierung. Displayinhalte sind Beispiele.</p>
+</div></section>
 <section id="einblicke" class="look"><div class="shell">
   <div class="section-title"><div><span class="mini-label">WORKBADGE IM ALLTAG</span><h2>Einfach. Übersichtlich.<br><span class="accent">Individuell.</span></h2></div><p>Inhalte auswählen, das Schild verbinden und die Anzeige aktualisieren – direkt mit der App.</p></div>
   <div class="photos">
