@@ -21,8 +21,8 @@ async function start(){
   const scene=new T.Scene();
   const camera=new T.OrthographicCamera(-55,55,40,-40,.1,1000);
   const controls=new OrbitControls(camera,renderer.domElement);
-  controls.enableDamping=true;controls.dampingFactor=.12;controls.enablePan=false;
-  controls.minZoom=.85;controls.maxZoom=2.2;controls.autoRotateSpeed=1.1;
+  controls.enableDamping=true;renderer.domElement.style.touchAction='pan-y';controls.dampingFactor=.12;controls.enablePan=false;
+  controls.minZoom=.85;controls.maxZoom=1.3;controls.minPolarAngle=Math.PI*.2;controls.maxPolarAngle=Math.PI*.8;controls.autoRotateSpeed=1.1;
 
   const env=new window.THREEEnvironment.RoomEnvironment(),pmrem=new T.PMREMGenerator(renderer);
   scene.environment=pmrem.fromScene(env,.035).texture;scene.environmentIntensity=.6;env.dispose();pmrem.dispose();
@@ -42,7 +42,8 @@ async function start(){
     screen=o;o.material=new T.MeshBasicMaterial({map:o.material.map,toneMapped:false});return;
    }
    if(!o.material.map)o.geometry=window.THREEUtils.toCreasedNormals(o.geometry,Math.PI*.22);
-   o.material.envMapIntensity=.6;
+   o.material.side=T.DoubleSide;o.material.envMapIntensity=.6;
+   if(/Schraubenschlitz/.test(o.name)){o.material.polygonOffset=true;o.material.polygonOffsetFactor=-2;o.material.polygonOffsetUnits=-2;o.renderOrder=2;}
   });
 
   const loader=new T.TextureLoader(),maps={};
