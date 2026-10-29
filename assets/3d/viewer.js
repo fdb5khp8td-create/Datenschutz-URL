@@ -78,7 +78,12 @@ async function start(){
  }catch(err){status.textContent='Die 3D-Ansicht konnte in diesem Browser nicht geladen werden.';console.error(err);}
 }
 
+function near(){const r=root.getBoundingClientRect();return r.top<innerHeight+400&&r.bottom>-400;}
+function check(){if(near()){removeEventListener('scroll',check);removeEventListener('resize',check);start();}}
+addEventListener('scroll',check,{passive:true});addEventListener('resize',check);
 if('IntersectionObserver' in window){
  const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){io.disconnect();start();}},{rootMargin:'400px 0px'});io.observe(root);
-}else start();
+}
+check();
+root.addEventListener('pointerenter',start,{once:true});
 })();
