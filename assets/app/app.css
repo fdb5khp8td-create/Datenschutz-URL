@@ -8,7 +8,7 @@
 /* iPhone */
 .ph{width:min(100%,330px);padding:11px;border-radius:54px;background:linear-gradient(145deg,#2d3836,#121a19);box-shadow:0 0 0 1px #3c4b48,0 30px 80px #0008,inset 0 0 0 2px #0b100f}
 .ph-screen{--s:.8;position:relative;width:100%;aspect-ratio:390/844;border-radius:44px;overflow:hidden;background:#f5f5ed;cursor:pointer}
-.ph-app{position:absolute;left:0;top:0;width:390px;height:844px;transform:scale(var(--s));transform-origin:0 0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;
+.ph-app{position:absolute;left:0;top:0;width:390px;height:844px;transform:scale(var(--s));transform-origin:0 0;overflow:hidden;scrollbar-width:none;
  background:#f5f5ed;color:#15201d;font-family:-apple-system,"SF Pro Text",Inter,system-ui,sans-serif;transition:transform .6s ease-out}
 .ph-app::-webkit-scrollbar{display:none}
 .ph:not(.is-revealing):not(.is-open) .ph-app{transform:scale(var(--s)) scale(1.035)}
@@ -98,3 +98,34 @@
 @media(max-width:900px){.app-sec .app-grid{grid-template-columns:280px 1fr;gap:30px}.app-sec .app-feats{grid-template-columns:1fr}.app-sec .app-feat{padding:20px}.app-sec .game-grid{grid-template-columns:1fr 1fr}.app-sec .game-pic{height:190px}.app-sec .game-pic b{font-size:28px}.app-sec .game-pic small{font-size:8px}.app-sec .game-body{padding:20px}.app-sec .game-pic.mem .mb{width:85px}.app-sec .game-pic.mem .mb span{font-size:11px}.app-sec .games{margin-top:65px}}
 @media(max-width:680px){.app-sec{padding:65px 0}.app-sec .section-title{display:block;margin-bottom:35px}.app-sec .section-title h2{font-size:40px}.app-sec .section-title>p{max-width:340px;font-size:14px;margin-top:20px}.app-sec .app-grid{grid-template-columns:1fr;gap:40px}.app-sec .app-phone-col{max-width:100%}.app-sec .ph{width:290px}.app-sec .app-feat{padding:23px}.app-sec .app-feat h3{font-size:23px}.app-sec .app-feat p{font-size:14px}.app-sec .game-grid{grid-template-columns:1fr;gap:22px}.app-sec .game-pic{height:210px}.app-sec .game-pic b{font-size:34px}.app-sec .game-body{padding:24px}.app-sec .game-body p{font-size:14px}.app-sec .game-body li{font-size:13px}.app-sec .games{padding-top:55px;margin-top:55px}.app-sec .games-price{display:grid;gap:12px;font-size:12px}.app-sec .game-pic.mem .mb{width:95px}.app-sec .game-pic.mem .mb span{font-size:12px}}
 @media(max-width:359px){.app-sec .ph{width:260px}.app-sec .section-title h2{font-size:37px}}
+/* Klickbare Funktionsfelder steuern das iPhone */
+.app-sec .app-feat{display:block;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}
+.app-sec .app-feat:hover{border-color:#9db18d;background:#fbfcf7}
+.app-sec .app-feat[aria-pressed="true"]{border-color:#355e47;background:#fff;box-shadow:0 0 0 1px #355e47 inset,0 10px 24px #273b2314}
+.app-sec .app-feat[aria-pressed="true"] h3:after{content:" →";color:#355e47}
+.app-sec .app-feat[data-show="games"]{grid-column:1/-1}
+@media(max-width:900px){.app-sec .app-feat[data-show="games"]{grid-column:auto}}
+.ph-screen{cursor:default}
+/* Zustände im iPhone */
+.pa-status{position:sticky;top:0;z-index:2;background:#f5f5ed;margin:0 -16px;padding-left:34px;padding-right:30px}
+.pa-nav{position:sticky;top:54px;z-index:2;background:#f5f5ed;margin:0 -16px;box-shadow:0 1px 0 #0000000d}
+.pa-nav span{right:18px}
+.pa-q.on{background:#0f6654;color:#fff}.pa-q.on:before{background:#fff}
+.pa-tile{transition:border-color .25s}
+.hl{animation:pahl 1.6s ease-out 1}
+@keyframes pahl{0%{box-shadow:0 0 0 0 #0f665400}25%{box-shadow:0 0 0 4px #0f665466}100%{box-shadow:0 0 0 0 #0f665400}}
+#paShot.flash{animation:paflash .45s ease-in-out}
+@keyframes paflash{0%{filter:none}35%{filter:brightness(.25)}70%{filter:brightness(1.15)}100%{filter:none}}
+.pa-pre{display:flex;align-items:center;gap:12px;padding:10px 12px;margin-top:8px}
+.pa-pre img{width:84px;border-radius:4px;aspect-ratio:250/122;object-fit:cover;box-shadow:0 0 0 3px #cfd2cd}
+.pa-pre span{flex:1;font-size:14px}.pa-pre b{display:block;font-weight:600}.pa-pre small{color:#6b7470;font-size:11px}
+.pa-pre i{font-style:normal;color:#0f6654;font-size:16px}
+.ph-siri{position:absolute;left:0;bottom:0;z-index:1;width:390px;transform:scale(var(--s));transform-origin:0 100%;padding:0 12px 26px;opacity:0;translate:0 30px;transition:opacity .35s,translate .45s;pointer-events:none}
+.ph-siri.on{opacity:1;translate:0 0}
+.ph-siri-in{display:flex;align-items:center;gap:12px;background:#111c1acc;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;border-radius:22px;padding:14px 16px;font-size:15px;font-weight:600;box-shadow:0 10px 30px #0006}
+.ph-siri-in small{display:block;font-size:11px;font-weight:500;opacity:.7}
+.ph-siri .orb{width:34px;height:34px;border-radius:50%;flex:none;background:conic-gradient(from 30deg,#ff4fd8,#5b8cff,#3ff2c6,#ffb84f,#ff4fd8);animation:orb 3s linear infinite}
+@keyframes orb{to{rotate:1turn}}
+.ph-siri p{margin:8px 6px 0;background:#ffffffe6;color:#15201d;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:500}
+.pa-btn{transition:opacity .3s}.ph.siri-on .pa-btn{opacity:0}
+@media (prefers-reduced-motion: reduce){.hl,#paShot.flash,.ph-siri .orb{animation:none}}

@@ -87,28 +87,47 @@ let raf=0,t0=0,skip=0,plan=reduce?'gentle':'full',running=false;
 function frame(now){
  const t=(now-t0)/1000+skip,o=pose(t,plan);lastPose=o;draw(o);
  phone.classList.toggle('is-revealing',o.revealing);
- if(o.done){running=false;phone.classList.add('is-open');canvas.style.visibility='hidden';return;}
+ if(o.done){running=false;phone.classList.add('is-open');canvas.style.visibility='hidden';show(current,false);return;}
  raf=requestAnimationFrame(frame);
 }
 function play(){
- cancelAnimationFrame(raf);stopTour();app.scrollTop=0;skip=0;running=true;
+ cancelAnimationFrame(raf);app.scrollTop=0;skip=0;running=true;
  phone.classList.remove('is-open','is-revealing');canvas.style.visibility='visible';
  t0=performance.now()+80;raf=requestAnimationFrame(frame);
 }
 // Tippen während der Animation springt zum Öffnen (wie in der App)
 screen.addEventListener('click',()=>{if(!running)return;const t=(performance.now()-t0)/1000+skip,rs=PLAN[plan].rs;if(t<rs)skip+=rs-t;});
 replay&&replay.addEventListener('click',play);
-screen.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();app.scrollBy({top:e.key==='ArrowDown'?100:-100,behavior:'auto'});}});
 
-// ---- kurzer Rundgang durch die App nach dem Start ---------------------------
-let tourRaf=0,tourStop=false;
-function stopTour(){tourStop=true;cancelAnimationFrame(tourRaf);}
-['wheel','touchstart','pointerdown','keydown'].forEach(ev=>app.addEventListener(ev,stopTour,{passive:true}));
-function tour(){
- if(reduce)return;tourStop=false;const target=app.querySelector('.ph-games');if(!target)return;
- const goal=Math.min(target.offsetTop-12,app.scrollHeight-app.clientHeight),start=performance.now()+1300,dur=2600;
- (function step(now){if(tourStop)return;const k=clamp((now-start)/dur);app.scrollTop=goal*eIO(k);if(k<1)tourRaf=requestAnimationFrame(step);})(performance.now());
+// ---- Felder daneben steuern, was das iPhone zeigt ---------------------------
+const shot=document.getElementById('paShot'),siri=phone.querySelector('.ph-siri');
+const feats=[...document.querySelectorAll('.app-feat[data-show]')];
+const STATES={
+ quick:  {target:'.pa-quick-h',hl:'.pa-quick',img:'status',tile:'status',chip:'meeting'},
+ tiles:  {target:'.pa-tiles-h',hl:'.pa-tiles',img:'name',tile:'name'},
+ contact:{target:'.pa-prev',hl:'.pa-dev',img:'qr',tile:'contact'},
+ handy:  {target:'.pa-prev',hl:'.pa-dev',img:'handy',tile:'handy'},
+ presets:{target:'.pa-presets',hl:'.pa-pre',img:'name',tile:'name'},
+ siri:   {target:'.pa-prev',hl:'.pa-dev',img:'dnd',tile:'status',siri:true},
+ games:  {target:'.ph-games',hl:'.pa-game',img:'name',tile:'name'}
+};
+let current='quick',scrollRaf=0;
+function scrollApp(y){cancelAnimationFrame(scrollRaf);const from=app.scrollTop,to=Math.max(0,Math.min(y,app.scrollHeight-app.clientHeight));
+ if(reduce||Math.abs(to-from)<2){app.scrollTop=to;return;}const s0=performance.now(),d=650;
+ (function step(n){const k=clamp((n-s0)/d);app.scrollTop=from+(to-from)*eIO(k);if(k<1)scrollRaf=requestAnimationFrame(step);})(s0);}
+function show(key,fromUser){
+ const st=STATES[key];if(!st)return;current=key;
+ feats.forEach(f=>f.setAttribute('aria-pressed',String(f.dataset.show===key)));
+ if(shot&&st.img){const src='/assets/3d/display-'+st.img+'.png?v=2';if(!shot.src.endsWith(src)){shot.classList.remove('flash');void shot.offsetWidth;shot.classList.add('flash');setTimeout(()=>{shot.src=src;},140);}}
+ app.querySelectorAll('.pa-tile').forEach(t=>t.classList.toggle('on',t.dataset.t===st.tile));
+ app.querySelectorAll('.pa-q').forEach(q=>q.classList.toggle('on',q.dataset.q===st.chip));
+ if(siri)siri.classList.toggle('on',!!st.siri);phone.classList.toggle('siri-on',!!st.siri);
+ app.querySelectorAll('.hl').forEach(e=>e.classList.remove('hl'));
+ const tgt=app.querySelector(st.target);if(tgt)scrollApp(tgt.offsetTop-104);
+ setTimeout(()=>{app.querySelectorAll(st.hl).forEach(e=>e.classList.add('hl'));},reduce?0:420);
+ if(fromUser&&innerWidth<900){const r=phone.getBoundingClientRect();if(r.bottom<80||r.top>innerHeight-120)phone.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});}
 }
+feats.forEach(f=>f.addEventListener('click',()=>{if(running)skip+=Math.max(0,PLAN[plan].rs+PLAN[plan].rd-((performance.now()-t0)/1000+skip));show(f.dataset.show,true);}));
 
 // ---- Start, wenn das iPhone ins Bild kommt -----------------------------------
 new ResizeObserver(fit).observe(screen);fit();
