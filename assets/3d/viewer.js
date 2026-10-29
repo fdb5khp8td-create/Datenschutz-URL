@@ -4,6 +4,8 @@ const root=document.getElementById('badge3d');
 if(!root)return;
 const stage=root.querySelector('.b3d-stage'),status=root.querySelector('.b3d-status');
 let started=false;
+const buttons=[...root.querySelectorAll('button')];
+buttons.forEach(button=>{button.disabled=true;});
 
 function loadScript(src){return new Promise((ok,fail)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=()=>fail(new Error('Skript nicht geladen'));document.head.appendChild(s);});}
 
@@ -86,14 +88,15 @@ async function start(){
   new ResizeObserver(size).observe(stage);
 
   setView('angle');setDisplay('name');
-  controls.autoRotate=!matchMedia('(prefers-reduced-motion: reduce)').matches;rot.setAttribute('aria-pressed',String(controls.autoRotate));
+  controls.autoRotate=false;rot.setAttribute('aria-pressed','false');
+  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',e=>{if(e.matches){controls.autoRotate=false;rot.setAttribute('aria-pressed','false');}});
   ['pointerdown','wheel'].forEach(ev=>renderer.domElement.addEventListener(ev,()=>{controls.autoRotate=false;rot.setAttribute('aria-pressed','false');},{passive:true}));
 
   let visible=true;new IntersectionObserver(es=>{visible=es[0].isIntersecting;}).observe(stage);
-  (function loop(){requestAnimationFrame(loop);if(!visible)return;controls.update();renderer.render(scene,camera);})();
+  (function loop(){requestAnimationFrame(loop);if(!visible||document.hidden)return;controls.update();renderer.render(scene,camera);})();
   window.WorkBadge3D={T,scene,camera,controls,product,renderer,setView,setDisplay};
-  renderer.render(scene,camera);root.classList.add('is-ready');status.remove();
- }catch(err){status.textContent='Die 3D-Ansicht konnte in diesem Browser nicht geladen werden.';console.error(err);}
+  renderer.render(scene,camera);root.classList.add('is-ready');buttons.forEach(button=>{button.disabled=false;});status.remove();
+ }catch(err){status.textContent='Die 3D-Ansicht ist in diesem Browser nicht verfügbar. Die Produktvorschau oben zeigt dir das Schild.';root.classList.add('has-error');}
 }
 
 function near(){const r=root.getBoundingClientRect();return r.top<innerHeight+400&&r.bottom>-400;}
@@ -104,9 +107,7 @@ if('IntersectionObserver' in window){
 }
 check();
 root.addEventListener('pointerenter',start,{once:true});
-// Im Hintergrund vorladen, sobald die Seite fertig ist – dann ist das Modell beim Scrollen schon da.
-function idle(){(window.requestIdleCallback||function(cb){setTimeout(cb,1200);})(start,{timeout:2500});}
-if(document.readyState==='complete')idle();else addEventListener('load',idle,{once:true});
+// Load only near the section so phones do not download 3D assets at page entry.
 
 // Standbild genauso groß wie das spätere 3D-Modell platzieren
 const poster=root.querySelector('.b3d-poster');
