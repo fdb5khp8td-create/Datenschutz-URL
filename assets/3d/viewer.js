@@ -64,7 +64,7 @@ async function start(){
   })();
 
   const loader=new T.TextureLoader(),maps={};
-  await Promise.all(['name','status','handy','qr','dnd'].map(async n=>{const t=await loader.loadAsync('/assets/3d/display-'+n+'.png');t.colorSpace=T.SRGBColorSpace;t.flipY=false;t.anisotropy=renderer.capabilities.getMaxAnisotropy();maps[n]=t;}));
+  await Promise.all(['name','status','handy','qr','dnd'].map(async n=>{const t=await loader.loadAsync('/assets/3d/display-'+n+'.png?v=2');t.colorSpace=T.SRGBColorSpace;t.flipY=false;t.anisotropy=renderer.capabilities.getMaxAnisotropy();maps[n]=t;}));
 
   const views={front:{pos:[0,0,145],target:[0,0,-5],flip:false},angle:{pos:[65,40,120],target:[0,-1,-5],flip:false},back:{pos:[28,26,140],target:[0,0,-5],flip:true}};
   const FRAME=78;
