@@ -87,7 +87,7 @@ let raf=0,t0=0,skip=0,plan=reduce?'gentle':'full',running=false;
 function frame(now){
  const t=(now-t0)/1000+skip,o=pose(t,plan);lastPose=o;draw(o);
  phone.classList.toggle('is-revealing',o.revealing);
- if(o.done){running=false;phone.classList.add('is-open');canvas.style.visibility='hidden';tour();return;}
+ if(o.done){running=false;phone.classList.add('is-open');canvas.style.visibility='hidden';return;}
  raf=requestAnimationFrame(frame);
 }
 function play(){
@@ -98,6 +98,7 @@ function play(){
 // Tippen während der Animation springt zum Öffnen (wie in der App)
 screen.addEventListener('click',()=>{if(!running)return;const t=(performance.now()-t0)/1000+skip,rs=PLAN[plan].rs;if(t<rs)skip+=rs-t;});
 replay&&replay.addEventListener('click',play);
+screen.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();app.scrollBy({top:e.key==='ArrowDown'?100:-100,behavior:'auto'});}});
 
 // ---- kurzer Rundgang durch die App nach dem Start ---------------------------
 let tourRaf=0,tourStop=false;
