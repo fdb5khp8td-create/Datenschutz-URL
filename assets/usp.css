@@ -1,0 +1,37 @@
+/* Ergänzungen: Vorteile, Ohne Schild, Vergleich, Barrierefreiheit */
+:focus-visible{outline:3px solid #1b5fd1;outline-offset:3px}
+.media-note,.faq-list details p,.feature-card>p,.setup-grid p{font-size:13px}
+.media-note{color:#52605a}
+.site-footer .media-note,.film-section .media-note{color:#c9d6c2}
+.usp-sec{background:#fdfef9;border-block:1px solid var(--line)}
+.usp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:18px;list-style:none;margin:0;padding:0}
+.usp-grid li{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:var(--bg)}
+.usp-grid li.usp-key{background:var(--mint);border-color:#b9cfb2}
+.usp-num{display:block;font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-bottom:10px}
+.usp-new{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:99px;background:var(--dark);color:#fff;font-size:11px;letter-spacing:.5px}
+.usp-grid h3{font-size:20px;line-height:1.25;margin:0 0 10px}
+.usp-grid p{font-size:14px;line-height:1.7;color:var(--muted);margin:0}
+.usp-grid p.usp-punch{margin-top:10px;color:var(--ink);font-weight:600}
+.todo{background:#fff3b0;color:#4a3b00;padding:0 4px;border-radius:3px;font-weight:600;font-size:.92em}
+.try-sec .try-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px;list-style:none;margin:40px 0 0;padding:0;counter-reset:t}
+.try-steps li{counter-increment:t;border-top:2px solid var(--accent);padding-top:18px}
+.try-steps li::before{content:"0" counter(t);display:block;font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--accent);margin-bottom:8px}
+.try-steps h3{font-size:19px;margin:0 0 8px}
+.try-steps p{font-size:14px;line-height:1.7;color:var(--muted);margin:0}
+.try-actions{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;margin-top:36px}
+.try-hint{margin-top:44px;padding:22px 26px;border:1px dashed #9db39a;border-radius:var(--radius);font-size:14px;line-height:1.7;color:var(--muted)}
+.try-hint a{color:var(--accent);font-weight:600;text-decoration:underline}
+.cmp-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fdfef9}
+.cmp{width:100%;min-width:620px;border-collapse:collapse;font-size:14px;line-height:1.5}
+.cmp caption{text-align:left;padding:16px 20px;font-size:13px;color:var(--muted)}
+.cmp th,.cmp td{padding:14px 20px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.cmp thead th{font-size:13px;letter-spacing:.3px;background:var(--bg)}
+.cmp tbody th{font-weight:600;width:24%}
+.cmp .cmp-us{background:var(--mint);font-weight:500}
+.cmp-note{font-size:13px;color:var(--muted);margin-top:16px;line-height:1.7}
+@media (max-width:640px){
+  .shell{width:calc(100% - 32px)}
+  .usp-grid li{padding:20px}
+  .cmp th,.cmp td{padding:12px 14px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
