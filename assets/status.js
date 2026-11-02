@@ -186,7 +186,7 @@
       var d = getDb();
       return Promise.all([
         d.fetchRecords([{ recordName: "games" }]).catch(function () { return { records: [] }; }),
-        d.performQuery({ recordType: "WorkBadgeAnnouncement", filterBy: [{ fieldName: "website", comparator: "EQUALS", fieldValue: { value: "show" } }] })
+        d.performQuery({ recordType: "WorkBadgeAnnouncement", filterBy: [{ fieldName: "status", comparator: "EQUALS", fieldValue: { value: "published" } }] })
       ]);
     })).then(function (r) {
       var rec = (r[0].records || [])[0], ok = rec && !rec.serverErrorCode;
