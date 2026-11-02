@@ -1,4 +1,13 @@
-# Änderungen an der Webseite (30.10.2026)
+# Änderungen an der Webseite (02.11.2026)
+
+- Rooms-Ausblick vor den FAQ: klarer Konzeptstatus, Türszene, umschaltbare Frei-/Belegt-Beispielanzeige und unverbindliche Interessentenanfrage per E-Mail.
+- Navigation und Footer verlinken den Ausblick; die sichtbare Rooms-FAQ und die strukturierten FAQ-Daten stimmen überein.
+- Realistische KI-Konzeptszene auf Grundlage der vorhandenen Rooms-Referenz; deutlich direkt am Bild gekennzeichnet. Zwei WebP-Größen für Desktop und Mobilgeräte.
+- WorkBadge-Detailbereich mit Vorderseite, Rückseite und Explosionsansicht aus den vorhandenen STL-basierten Produktvisualisierungen. Bildherkunft unter `assets/details/IMAGE-SOURCE.md` und `assets/rooms/IMAGE-SOURCE.md`.
+- Ruhige einmalige Einblendungen, Hover-Details, Lesefortschritt und weiche Bildwechsel. Keine neue Bibliothek. Betrieb ohne JavaScript und mit reduzierter Bewegung berücksichtigt.
+- Impressum, Datenschutz, Domain und bestehende App-/Shop-Konfiguration beibehalten.
+
+## Vorheriger Stand (30.10.2026)
 
 Grundlage: `KONZEPT-USP-UND-BINDUNG.md`, aufgesetzt auf den Stand von origin/main (3D-Modell im Kopfbereich, aktueller App-Look, keine Abo-Preise). Geändert: `index.html`, neu `assets/usp.css`. Impressum und Datenschutz unverändert.
 
