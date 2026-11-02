@@ -2,6 +2,14 @@
 
 Öffentliche Website: https://workbadge.de/ · Hosting: GitHub Pages
 
+## Aktualisierung vom 2. November 2026
+
+- WorkBadge Rooms als eigenständigen Ausblick vor den FAQ integriert, mit einer ausdrücklich gekennzeichneten KI-Konzeptvisualisierung, interaktiver Beispielanzeige und unverbindlicher E-Mail-Anfrage. Noch kein bestellbares Produkt; keine Zusage zu Starttermin oder fertigen Kalenderanbindungen.
+- Neue Detailansichten des bestehenden WorkBadge: Vorderseite, Rückseite und schematischer Aufbau, aus den vorhandenen Original-STL-Renderings.
+- Dezente einmalige Einblendungen, Hover-Details und Lesefortschritt. Inhalte bleiben ohne JavaScript sichtbar; reduzierte Bewegung wird berücksichtigt.
+- Neue Bilder als kompakte WebP-Dateien, Rooms mit responsiven Bildgrößen. Die große PNG-Quelldatei wird von der Seite nicht geladen.
+- Aktuelle Prüfung: `VERIFICATION-ROOMS-2026-11-02.md`. Die folgenden Angaben dokumentieren die frühere Überarbeitung.
+
 Überarbeitet am 29. Oktober 2026. Der aktuelle GitHub-Stand einschließlich App-Vorschau und Spielen wurde in das neue Design übernommen.
 
 ## Inhalte
