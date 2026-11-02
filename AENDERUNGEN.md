@@ -1,3 +1,13 @@
+# Statusbereich und Nachrichten (02.11.2026)
+
+- `assets/status-config.js` (Token **leer**: kein Statusbereich, kein Netzwerkaufruf), `assets/status.js`, `assets/status.css`. Liest nach VERTRAG-STATUSSEITE.md `WorkBadgeGameSwitch/games` und `WorkBadgeAnnouncement` (website = show) per CloudKit JS, Zeitlimit 5 s, bei Fehler still ausgeblendet, Neuladen alle 5 Min bei sichtbarer Seite. Texte nur per textContent, Links nur https.
+- Startseite: Nachrichten-Banner oben (schließbar, sessionStorage), Statusleiste unter der Kopfzeile mit Link auf `/status/`; Footer-Link „Status“.
+- Neue Seite `status/index.html` (alle Spiele mit Status, Hinweis, „Stand“, Nachrichten), in `sitemap.xml`.
+- Demo: `?statusdemo=1` (Startseite und Statusseite) mit Beispieldaten, ohne Token.
+- **Zur Prüfung durch Marcel:** Datenschutz neuer Abschnitt 8 „Statusanzeige und Nachrichten (Apple CloudKit)“ (Folgeabschnitte neu nummeriert, Stand-Datum der Erklärung nicht geändert). Der Absatz ist neutral formuliert und nicht rechtlich geprüft.
+- Offen: Web-API-Token eintragen (nur lesen, Domain workbadge.de); Feld `website` in CloudKit indizieren. Die Spieleliste enthält auch „Halbe Sachen“ (laut Vertrag), obwohl `GameAvailabilityPolicy.knownIDs` es noch nicht kennt.
+- Nicht geprüft: echter CloudKit-Abruf (kein Token).
+
 # Änderungen an der Webseite (02.11.2026)
 
 - Rooms-Ausblick vor den FAQ: klarer Konzeptstatus, Türszene, umschaltbare Frei-/Belegt-Beispielanzeige und unverbindliche Interessentenanfrage per E-Mail.

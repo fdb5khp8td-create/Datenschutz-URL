@@ -1,0 +1,34 @@
+/* Statusleiste, Nachrichten-Banner und Statusseite */
+.wb-statusbar[hidden],.wb-notices[hidden],.wb-games[hidden],.wb-demo[hidden]{display:none}
+.wb-statusbar{background:#fdfef9;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5}
+.wb-statusbar .shell{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding-block:9px}
+.wb-statusbar a{color:var(--accent);font-weight:600;text-decoration:underline;margin-left:auto}
+.wb-dot{display:inline-block;width:9px;height:9px;border-radius:50%;background:#2f8f4e;margin-right:8px}
+.wb-dot.is-paused{background:#b86e00}.wb-dot.is-locked{background:#b3261e}
+.wb-notice{padding:12px 0;font-size:14px;line-height:1.55;background:#e8f0e3;color:var(--ink);border-bottom:1px solid #c5d4bd}
+.wb-notice.k-update{background:#e3edf8;border-color:#bccde3}
+.wb-notice.k-maintenance{background:#fff0d1;border-color:#e6cd94}
+.wb-notice.k-important{background:#fbe1de;border-color:#e3b2ad}
+.wb-notice .shell{display:flex;align-items:flex-start;gap:14px}
+.wb-notice-body{flex:1}.wb-notice-body strong{display:block}
+.wb-notice-body a,.wb-list-notice a{color:inherit;font-weight:600;text-decoration:underline}
+.wb-notice-close{flex:none;min-width:44px;min-height:44px;margin:-10px -10px -10px 0;border:0;background:transparent;font-size:24px;line-height:1;cursor:pointer;color:inherit}
+.status-page{padding-block:60px 100px}
+.status-page h1{font-size:clamp(34px,6vw,56px);line-height:1.1;margin:12px 0 16px}
+.status-page .intro{color:var(--muted);max-width:620px;line-height:1.7}
+.status-page h2{font-size:24px;margin:48px 0 16px}
+.wb-games{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--radius);background:#fdfef9}
+.wb-games li{padding:18px 22px;border-top:1px solid var(--line)}
+.wb-games li:first-child{border-top:0}
+.wb-games .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:600}
+.wb-games .state.is-paused{color:#8a5200}.wb-games .state.is-locked{color:#9c1f18}.wb-games .state.is-ok{color:#1f6b3a}
+.wb-games p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.6}
+.wb-stamp,.wb-empty,.wb-offline{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.6}
+.wb-list-notice{border-radius:var(--radius);border:1px solid #c5d4bd;background:#e8f0e3;padding:18px 22px;margin-bottom:14px;line-height:1.6;font-size:14px}
+.wb-list-notice.k-update{background:#e3edf8;border-color:#bccde3}
+.wb-list-notice.k-maintenance{background:#fff0d1;border-color:#e6cd94}
+.wb-list-notice.k-important{background:#fbe1de;border-color:#e3b2ad}
+.wb-list-notice strong{display:block;margin-bottom:4px}
+.wb-demo{font-size:13px;background:#fff3b0;color:#4a3b00;padding:6px 12px;text-align:center}
+.status-page .back{display:inline-block}.status-page .mini-label{display:block;margin-top:28px}
+.wb-demo{margin:14px 0}
