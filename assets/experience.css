@@ -1,0 +1,110 @@
+/* Small, optional enhancements. Content is always visible without JavaScript. */
+.reading-progress {
+  position: absolute;
+  inset: auto 0 -1px;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.reading-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #53755d;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.head-nav > a:not(.nav-cta) {
+  position: relative;
+}
+
+.head-nav > a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+.head-nav > a:not(.nav-cta):focus-visible::after {
+  transform: scaleX(1);
+}
+
+.usp-grid > li,
+.feature-card {
+  transition: transform 250ms ease, border-color 250ms ease, box-shadow 250ms ease;
+}
+
+.btn .icon,
+.text-link .icon,
+.contact-row > a > .icon {
+  transition: transform 220ms ease;
+}
+
+.store-button,
+.buy-app-link {
+  transition: background 220ms ease, box-shadow 220ms ease;
+}
+
+.setup-grid > li,
+.try-steps > li {
+  transition: border-color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .head-nav > a:not(.nav-cta):hover::after {
+    transform: scaleX(1);
+  }
+
+  .usp-grid > li:hover,
+  .feature-card:hover {
+    transform: translateY(-3px);
+    border-color: #91aa87;
+    box-shadow: 0 12px 28px -22px #263d2b50;
+  }
+
+  .btn:hover .icon,
+  .text-link:hover .icon,
+  .contact-row > a:hover > .icon {
+    transform: translateX(3px);
+  }
+
+  .store-button:hover {
+    box-shadow: 0 6px 18px -12px #14281f70;
+  }
+
+  .setup-grid > li:hover,
+  .try-steps > li:hover {
+    border-color: #355e47;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .head-nav > a:not(.nav-cta)::after,
+  .usp-grid > li,
+  .feature-card,
+  .btn .icon,
+  .text-link .icon,
+  .contact-row > a > .icon,
+  .store-button,
+  .buy-app-link,
+  .setup-grid > li,
+  .try-steps > li {
+    transition: none;
+  }
+
+  .usp-grid > li:hover,
+  .feature-card:hover,
+  .btn:hover .icon,
+  .text-link:hover .icon,
+  .contact-row > a:hover > .icon {
+    transform: none;
+  }
+}
