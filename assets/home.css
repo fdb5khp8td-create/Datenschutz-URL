@@ -77,3 +77,22 @@
 @media (min-width:720px){.use-grid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1100px){.use-grid{grid-template-columns:repeat(4,1fr);gap:20px}}
 @media (max-width:640px){.use-sec{padding:40px 0}.use-card .home-scene{aspect-ratio:16/9}}
+
+/* Zwei Welten: Work und Home */
+.world-grid{display:grid;gap:20px}
+.world{border-radius:var(--radius);padding:22px}
+.world--work{background:var(--mint);border:1px solid #b9cfb2}
+.world--home{background:#f3e8d0;border:1px solid #e0cfa8}
+.world .eyebrow{margin-bottom:10px}
+.world h2{font-size:clamp(28px,6vw,38px);line-height:1.1;margin:0 0 8px}
+.world>p{font-size:16px;line-height:1.55;color:#33443c;margin:0 0 18px;max-width:46ch}
+.world .home-scene{border:0;margin-bottom:12px}
+.world .btn{margin-top:6px;width:auto}
+.world .text-link{font-weight:600;color:var(--accent)}
+.work-tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 16px}
+.work-tiles figure{margin:0}
+.work-tiles img{display:block;width:100%;height:auto;background:#fff;border:3px solid #dfe2dc;border-radius:8px;box-shadow:0 0 0 1px #8b948c}
+.desk-only{display:none}
+.use-fact{margin:18px 0 0;font-size:14px;color:var(--muted)}
+.use-fact strong{color:var(--ink)}
+@media (min-width:900px){.world-grid{grid-template-columns:1fr 1fr;gap:24px}.world{padding:30px}.desk-only{display:grid}}
