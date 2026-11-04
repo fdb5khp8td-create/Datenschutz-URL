@@ -53,7 +53,7 @@
 .pix-row{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:28px}
 @media (min-width:720px){
   .home-grid{grid-template-columns:repeat(2,1fr)}
-  .home-points{grid-template-columns:repeat(3,1fr)}
+  .home-points{grid-template-columns:repeat(2,1fr)}
   .home-place{padding:64px 0}
   .pix-row{grid-template-columns:repeat(4,1fr)}
 }
