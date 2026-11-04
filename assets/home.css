@@ -1,0 +1,71 @@
+/* WorkBadge Home: Szenen mit Schild-Mockups (reines CSS, keine Fotos) */
+.home-scene{position:relative;margin:0;display:grid;place-items:center;aspect-ratio:16/11;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,#edf1e6 0 70%,#d9e2cf 70% 100%)}
+.home-scene::before,.home-scene::after{content:"";position:absolute}
+.home-scene>*{position:relative;z-index:1}
+/* Flur: Tür */
+.home-scene--door{background:#e8eee0}
+.home-scene--door::before{left:9%;right:9%;top:7%;bottom:0;border-radius:12px 12px 0 0;background:#d8ccb2;box-shadow:inset 0 0 0 6px #cbbd9f}
+.home-scene--door::after{right:12%;top:56%;width:9px;height:34px;border-radius:5px;background:#8d7f63}
+/* Küche: Kühlschrank */
+.home-scene--kitchen{background:#e4ebdc}
+.home-scene--kitchen::before{left:11%;right:11%;top:6%;bottom:0;border-radius:16px 16px 0 0;background:linear-gradient(90deg,#f4f6f2,#e6eae3);box-shadow:inset 0 0 0 2px #cfd6c8}
+.home-scene--kitchen::after{left:15%;top:18%;width:6px;height:36%;border-radius:4px;background:#aab3a6}
+/* Wohnzimmer: Sideboard */
+.home-scene--living{background:#e9eee3}
+.home-scene--living::before{left:0;right:0;bottom:0;height:26%;background:#c9b999;box-shadow:inset 0 5px 0 #b7a683}
+.home-scene--living::after{left:8%;top:12%;width:20%;aspect-ratio:1;border-radius:50%;background:#f6f1c9;opacity:.8}
+/* Gäste: Regal mit Router */
+.home-scene--guest{background:#e5ecde}
+.home-scene--guest::before{left:0;right:0;bottom:0;height:22%;background:#cbd8c2;box-shadow:inset 0 5px 0 #b4c4aa}
+.home-scene--guest::after{right:9%;bottom:22%;width:16%;height:9%;border-radius:4px 4px 0 0;background:#3a4a43}
+.home-badge{width:68%;padding:clamp(6px,2.2vw,12px);border-radius:12px;background:linear-gradient(180deg,#e9ebe6,#d7dbd3);box-shadow:0 10px 20px rgba(27,44,37,.25),inset 0 0 0 1px rgba(255,255,255,.7)}
+.home-badge img{display:block;width:100%;height:auto;background:#fff;box-shadow:0 0 0 1px #8b948c}
+.home-hero{padding:56px 0 40px}
+.home-hero-grid{display:grid;gap:32px;align-items:center}
+.home-hero h1{font-size:clamp(38px,9vw,68px);line-height:1.04;margin:0 0 18px}
+.home-hero h1 em{font-style:normal;color:var(--accent)}
+.home-hero p.lead{font-size:18px;line-height:1.6;color:var(--muted);margin:0 0 26px;max-width:34ch}
+.home-place{padding:48px 0}
+.home-place+.home-place{border-top:1px solid var(--line)}
+.home-place .section-heading{margin-bottom:28px}
+.home-place h2{margin:0}
+.home-grid{display:grid;gap:26px;grid-template-columns:1fr}
+.home-card h3{font-size:20px;line-height:1.25;margin:16px 0 6px}
+.home-card p{font-size:15px;line-height:1.6;color:var(--muted);margin:0}
+.home-card .usp-new{margin:0 0 0 0;display:inline-block;vertical-align:middle}
+.home-card h3 .usp-new{margin-left:8px;font-size:11px}
+.home-note{font-size:13px;color:var(--muted);margin-top:14px}
+.home-points{display:grid;gap:18px;grid-template-columns:1fr;list-style:none;margin:28px 0 0;padding:0}
+.home-points li{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:#fdfef9}
+.home-points h3{font-size:18px;margin:0 0 6px}
+.home-points p{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.home-end{padding:56px 0 80px;background:#fdfef9;border-top:1px solid var(--line)}
+/* Teaser auf der Startseite */
+.home-teaser{padding:72px 0;background:var(--mint)}
+.home-teaser-grid{display:grid;gap:28px;align-items:center}
+.home-teaser h2{font-size:clamp(32px,7vw,52px);line-height:1.08;margin:0 0 14px}
+.home-teaser p.lead{font-size:17px;line-height:1.6;margin:0 0 22px;color:#33443c;max-width:36ch}
+.home-minis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.home-minis figure{margin:0}
+.home-minis img{display:block;width:100%;height:auto;background:#fff;border:3px solid #dfe2dc;border-radius:7px;box-shadow:0 0 0 1px #8b948c,0 4px 10px rgba(27,44,37,.18)}
+.home-minis figcaption{font-size:12px;margin-top:6px;text-align:center;color:#33443c}
+/* Bild-Kacheln der App/Spiele */
+.pix-row{display:grid;gap:14px;grid-template-columns:repeat(2,1fr);margin-top:28px}
+@media (min-width:720px){
+  .home-grid{grid-template-columns:repeat(2,1fr)}
+  .home-points{grid-template-columns:repeat(3,1fr)}
+  .home-place{padding:64px 0}
+  .pix-row{grid-template-columns:repeat(4,1fr)}
+}
+@media (min-width:1024px){
+  .home-grid--3{grid-template-columns:repeat(3,1fr)}
+  .home-hero-grid,.home-teaser-grid{grid-template-columns:1fr 1.15fr;gap:56px}
+}
+@media (max-width:640px){
+  .home-hero{padding:36px 0 24px}
+  .home-teaser{padding:48px 0}
+}
+.pix-row figure{margin:0}
+.pix-row img{display:block;width:100%;height:auto;background:#fff;border:3px solid #dfe2dc;border-radius:8px;box-shadow:0 0 0 1px #8b948c}
+.cmp{min-width:0}
+@media (max-width:640px){.cmp{font-size:13px}.cmp th,.cmp td{padding:10px 8px}.cmp tbody th{width:auto}}

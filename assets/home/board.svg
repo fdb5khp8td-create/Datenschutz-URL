@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 122" width="250" height="122" role="img" aria-label="Schild-Anzeige: Pinnwand mit drei Notizen – Bin 18:30 da, Milch fehlt, Oma anrufen">
+<rect width="250" height="122" fill="#fff"/>
+<g fill="#000" font-family="Helvetica Neue,Arial,sans-serif" font-weight="700">
+<rect width="250" height="24" fill="#000"/><text x="10" y="16" font-size="11" letter-spacing="1" fill="#fff">PINNWAND</text><text x="240" y="16" font-size="10" text-anchor="end" fill="#fff">3 neu</text><g transform="rotate(-2 64.0 55.0)"><rect x="8" y="38" width="112" height="34" fill="#fff" stroke="#000" stroke-width="2"/><rect x="58.0" y="35" width="12" height="6" fill="#000"/><text x="64.0" y="60.0" font-size="13" text-anchor="middle">Bin 18:30 da</text></g><g transform="rotate(2 186.0 51.0)"><rect x="130" y="34" width="112" height="34" fill="#fff" stroke="#000" stroke-width="2"/><rect x="180.0" y="31" width="12" height="6" fill="#000"/><text x="186.0" y="56.0" font-size="13" text-anchor="middle">Milch fehlt</text></g><g transform="rotate(-1 125.0 97.0)"><rect x="40" y="82" width="170" height="30" fill="#fff" stroke="#000" stroke-width="2"/><rect x="119.0" y="79" width="12" height="6" fill="#000"/><text x="125.0" y="102.0" font-size="13" text-anchor="middle">Oma anrufen</text></g>
+</g>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 122" width="250" height="122" role="img" aria-label="Schild-Anzeige: Morgen Bio und Papier">
+<rect width="250" height="122" fill="#fff"/>
+<g fill="#000" font-family="Helvetica Neue,Arial,sans-serif" font-weight="700">
+<rect width="250" height="24" fill="#000"/><text x="10" y="16" font-size="11" letter-spacing="1" fill="#fff">ABFALLKALENDER</text><text x="12" y="56" font-size="15">MORGEN:</text><text x="12" y="92" font-size="30">Bio + Papier</text><text x="12" y="112" font-size="11" font-weight="400">Danach: Restmüll am Freitag</text><g transform="translate(196 34) scale(.5)"><rect x="0" y="12" width="30" height="40" rx="3" fill="#000" stroke="#000" stroke-width="3"/><rect x="-4" y="6" width="38" height="8" rx="2" fill="#000"/><path d="M9 22v22M15 22v22M21 22v22" stroke="#fff" stroke-width="3"/><rect x="44" y="12" width="30" height="40" rx="3" fill="#fff" stroke="#000" stroke-width="3"/><rect x="40" y="6" width="38" height="8" rx="2" fill="#000"/><path d="M53 22v22M59 22v22M65 22v22" stroke="#000" stroke-width="3"/></g>
+</g>
+</svg>

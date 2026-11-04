@@ -9,21 +9,21 @@
       src: '/assets/details/front.webp', count: '01 / 03',
       alt: '3D-Ansicht der WorkBadge-Vorderseite mit weißem Gehäuse und E-Ink-Statusanzeige: Bitte kurz anklopfen.',
       heading: 'Deine Botschaft bleibt.',
-      text: 'Das 2,13-Zoll-E-Ink-Display zeigt Name, Status oder deine eigene Nachricht. Die zuletzt übertragene Anzeige bleibt auch ohne Strom sichtbar.',
+      text: 'Name, Status oder Nachricht – bleibt auch ohne Strom sichtbar.',
       footer: 'PAPIERÄHNLICH. PERSÖNLICH.'
     },
     back: {
       src: '/assets/details/back.webp', count: '02 / 03',
       alt: '3D-Ansicht der WorkBadge-Rückseite mit der magnetischen Halterung am weißen Gehäuse.',
       heading: 'Auch die Rückseite zählt.',
-      text: 'Die Ansicht zeigt das 3D-gedruckte Gehäuse und die magnetische Halterung. Die Darstellung basiert auf den vorhandenen Gehäusedaten.',
+      text: 'Gehäuse aus dem 3D-Drucker, mit magnetischer Halterung.',
       footer: 'EIN ANDERER BLICKWINKEL.'
     },
     assembly: {
       src: '/assets/details/assembly.webp', count: '03 / 03',
       alt: 'Explosionsansicht von WorkBadge: weißer Frontrahmen, schematisches Display, Gehäuserückseite und Halterung räumlich getrennt.',
       heading: 'Ein Blick auf den Aufbau.',
-      text: 'Rahmen, Gehäuse und Halterung werden hier räumlich getrennt gezeigt. So wird der Aufbau verständlich. Display und Montage sind schematisch dargestellt.',
+      text: 'So ist das Schild aufgebaut – schematisch dargestellt.',
       footer: 'DIE TEILE. DAS GANZE.'
     }
   };

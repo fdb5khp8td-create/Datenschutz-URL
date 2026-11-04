@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 122" width="250" height="122" role="img" aria-label="Schild-Anzeige: Alles zu? Fenster Bad offen, Haustür zu, Garage zu">
+<rect width="250" height="122" fill="#fff"/>
+<g fill="#000" font-family="Helvetica Neue,Arial,sans-serif" font-weight="700">
+<rect width="250" height="24" fill="#000"/><text x="10" y="16" font-size="11" letter-spacing="1" fill="#fff">ALLES ZU?</text><text x="240" y="16" font-size="10" text-anchor="end" fill="#fff">1 offen</text><text x="12" y="58" font-size="20">Fenster Bad</text><text x="238" y="58" font-size="20" text-anchor="end">OFFEN</text><rect x="8" y="66" width="234" height="2" fill="#000"/><text x="12" y="90" font-size="16" font-weight="400">Haustür</text><text x="238" y="90" font-size="16" text-anchor="end">zu</text><text x="12" y="111" font-size="16" font-weight="400">Garage</text><text x="238" y="111" font-size="16" text-anchor="end">zu</text>
+</g>
+</svg>

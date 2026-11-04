@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 122" width="250" height="122" role="img" aria-label="Schild-Anzeige: Los 8:08, S1 8:14">
+<rect width="250" height="122" fill="#fff"/>
+<g fill="#000" font-family="Helvetica Neue,Arial,sans-serif" font-weight="700">
+<rect width="250" height="24" fill="#000"/><text x="10" y="16" font-size="11" letter-spacing="1" fill="#fff">LOSGEH-WECKER</text><text x="240" y="16" font-size="10" text-anchor="end" fill="#fff">morgen</text><text x="12" y="76" font-size="46">Los 8:08</text><line x1="12" y1="88" x2="238" y2="88" stroke="#000" stroke-width="2"/><text x="12" y="109" font-size="18">S1 8:14</text><text x="238" y="109" font-size="14" text-anchor="end">Gleis 2 · 6 Min Fußweg</text>
+</g>
+</svg>

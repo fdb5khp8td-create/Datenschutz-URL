@@ -1,3 +1,12 @@
+# Webseite entschlackt, neue Seite WorkBadge Home (04.11.2026)
+
+- **Startseite** deutlich kürzer: Überschrift plus höchstens ein Satz je Abschnitt, mehr Bilder. Vorteile 7 → 4 Kacheln, App-Funktionen und Spiele nur noch Stichworte, „Ohne Schild“ mit vier Anzeigebildern, Vergleich 4 Zeilen, FAQ 9 → 6 (FAQ-JSON-LD wortgleich angepasst), Rooms ohne Ideenliste. Der alte Abschnitt `#home-funktionen` ist durch einen großen Teaser mit Bild ersetzt (`#home`, Button nach `/home/`). Nav: Vorteile · Home · Die App · Fragen · Dein WorkBadge. Texte im Detail-Umschalter (`assets/rooms.js`) gekürzt.
+- **Neue Seite `home/index.html`** „WorkBadge Home“ nach Orten: Flur/Haustür (Losgeh-Wecker, Alles zu?, Wetter & Warnungen), Küche (Familien-Pinnwand, Abfallkalender, Haushaltsplan), Wohnzimmer (Strompreis-Ampel, Smart-Home-Werte), Gäste (WLAN per QR), Abschluss (kostenlose App, Familie ohne Schild, wenig Strom). Losgeh-Wecker und Pinnwand mit „Kommt mit dem nächsten Update“.
+- **Bilder:** neun selbst gezeichnete SVG-Schildanzeigen (`assets/home/*.svg`, 250×122, nur Schwarz/Weiß, Herkunft in `assets/home/IMAGE-SOURCE.md`), Szenen/Schildrahmen per CSS (`assets/home.css`). Alle Inhalte sind Beispiele, der QR-Code ist ein nicht scanbares Muster. Die KI-Rooms-Szene wird auf der Home-Seite bewusst nicht verwendet (Büro-Tür, anderes Gerät).
+- Sitemap um `/home/` ergänzt. Keine neuen Skripte, keine neuen externen Dienste.
+- **Zur Prüfung durch Marcel:** (1) Smart-Home-Werte und „Alles zu?“ sind allgemein formuliert – stimmen Namen/Voraussetzungen (Home-Station, HomeKit/Matter)? (2) Beispielwerte (Strompreis 24 ct, Namen Lea/Ben/Max) sind erfunden und als Beispiel gekennzeichnet. (3) Seite erst zusammen mit dem App-Update veröffentlichen, wenn der Hinweis „Kommt mit dem nächsten Update“ entfallen soll.
+- Hochzuladen: `index.html`, `home/index.html`, `sitemap.xml`, `assets/home.css`, `assets/home/` (9 SVG + IMAGE-SOURCE.md), `assets/rooms.js`.
+
 # WorkBadge Home auf der Webseite (04.11.2026)
 
 - Neuer Abschnitt `#home-funktionen` (zwischen „Ohne Schild ausprobieren“ und „Vergleich“), gleicher Stil wie „Ohne Schild“: **Losgeh-Wecker** und **Familien-Pinnwand** mit NEU-Kennzeichnung, dazu eine Zeile mit den Home-Kacheln (Gäste-WLAN, Haushaltsplan, Abfallkalender, Strompreis-Ampel, Warnungen & Pollen, „Alles zu?“). Nur vorhandenes Stylesheet (`usp.css`), keine neuen Dateien, Skripte oder Dienste.
