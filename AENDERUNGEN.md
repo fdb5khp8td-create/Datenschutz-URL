@@ -1,3 +1,13 @@
+# WorkBadge Home auf der Webseite (04.11.2026)
+
+- Neuer Abschnitt `#home-funktionen` (zwischen „Ohne Schild ausprobieren“ und „Vergleich“), gleicher Stil wie „Ohne Schild“: **Losgeh-Wecker** und **Familien-Pinnwand** mit NEU-Kennzeichnung, dazu eine Zeile mit den Home-Kacheln (Gäste-WLAN, Haushaltsplan, Abfallkalender, Strompreis-Ampel, Warnungen & Pollen, „Alles zu?“). Nur vorhandenes Stylesheet (`usp.css`), keine neuen Dateien, Skripte oder Dienste.
+- Datenschutz: neuer Abschnitt 9 „Familien-Pinnwand und Losgeh-Wecker“ (iCloud/CloudKit des Einrichtenden, Teilen nur mit Eingeladenen, Ablauf 4 Std. bis 1 Woche, Transitous-Abfrage). Danach Nummerierung um eins verschoben (Rechte = 10, Änderungen = 11). Stand-Datum der Erklärung nicht geändert.
+- **Zur Prüfung durch Marcel (offen, nicht erfunden):**
+  - Datenschutz Abschnitt 9: Die Transitous-Angaben stammen aus dem App-Code (`Transit.swift`): direkter Abruf von api.transitous.org, übertragen werden Suchtext, Haltestellenkennungen, Zeit, Sprache und App-Kennung sowie technisch bedingt die IP-Adresse; kein GPS, kein Termininhalt. Rechtsgrundlage (Art. 6 DSGVO) fehlt bewusst. Ein Link auf die Datenschutzhinweise von Transitous fehlt, weil die URL nicht bestätigt ist.
+  - Die Texte beschreiben Funktionen der App-Version 1.64. Die Seite sollte erst zusammen mit dieser Version online gehen.
+  - Ob die Home-Kacheln auf der Seite auch in der App-Version 1.62 so heißen, bitte prüfen.
+- Hochzuladen: `index.html`, `datenschutz/index.html`, `AENDERUNGEN.md` (nur Doku).
+
 # Statusbereich und Nachrichten (02.11.2026)
 
 - `assets/status-config.js` (Token **leer**: kein Statusbereich, kein Netzwerkaufruf), `assets/status.js`, `assets/status.css`. Liest nach VERTRAG-STATUSSEITE.md `WorkBadgeGameSwitch/games` und `WorkBadgeAnnouncement` (website = show) per CloudKit JS, Zeitlimit 5 s, bei Fehler still ausgeblendet, Neuladen alle 5 Min bei sichtbarer Seite. Texte nur per textContent, Links nur https.
