@@ -57,3 +57,8 @@ Keine Akku-Laufzeitzahl („wochenlang“), keine Tages-Serie, kein StandBy, kei
 
 ## Nicht geprüft
 Echte Geräte, vollständiger axe-core-Lauf. `VERIFICATION.md` ist der Stand vom 29.10.
+
+## 2026-11-07 – Feinschliff nach apple-design
+- `assets/experience.css`: Druck-Feedback auf `:active` (scale .97, 80–120 ms ease-out) für Knöpfe, Store-Button, Navigation, Karten; weiche Schatten statt harter Kartenrahmen; Navigation als `backdrop-filter`-Material mit Fallback (`@supports`, `prefers-reduced-transparency`, `prefers-contrast`); Überschriften enger (`-0.035em`), `text-wrap: balance`, Fließtext mobil mindestens 16 px; Reduced Motion ohne Bewegung.
+- `assets/experience.js`: Einblenden kürzer (400 ms statt 620 ms, 10 px statt 18 px, Staffelung max. 90 ms).
+- Cache-Busting `experience.css/js` auf `20261107-apple1`. Keine neuen Skripte, Texte unverändert.

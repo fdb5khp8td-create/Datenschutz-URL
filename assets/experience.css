@@ -108,3 +108,168 @@
     transform: none;
   }
 }
+
+/* Apple-Design-Feinschliff: sofortiges Feedback, Material, Typografie.
+   Nur transform/opacity werden animiert; kurze ease-out-Übergänge, keine Verzögerung. */
+.btn,
+.store-button,
+.buy-app-link,
+.film-toggle,
+.product-selector button,
+.detail-controls button,
+.rooms-demo-controls button,
+.menu-toggle,
+.head-nav .nav-cta {
+  transition: transform 120ms ease-out, background-color 160ms ease-out, color 160ms ease-out, border-color 160ms ease-out, box-shadow 160ms ease-out;
+}
+
+.btn:active,
+.store-button:active,
+.buy-app-link:active,
+.film-toggle:active,
+.product-selector button:active,
+.detail-controls button:active,
+.rooms-demo-controls button:active,
+.menu-toggle:active,
+.head-nav .nav-cta:active {
+  transform: scale(0.97);
+  transition-duration: 80ms;
+}
+
+.usp-grid > li:active,
+.feature-card:active,
+.home-card:active,
+.use-card:active {
+  transform: scale(0.99);
+  transition-duration: 80ms;
+}
+
+.home-card,
+.use-card {
+  transition: transform 200ms ease-out;
+}
+
+.text-link:active,
+.faq-list summary:active {
+  opacity: 0.7;
+}
+
+/* Karten: weiche, halbtransparente Schatten statt harter Rahmenlinien */
+.usp-grid > li,
+.feature-card,
+.home-points > li,
+.buy-card {
+  border-color: rgba(38, 61, 43, 0.08);
+  box-shadow: 0 1px 2px rgba(27, 44, 37, 0.05), 0 8px 24px -14px rgba(27, 44, 37, 0.18);
+}
+
+/* Navigation als Material: Inhalt scrollt darunter, kein harter Strich */
+.site-header {
+  border-bottom-color: transparent;
+  box-shadow: 0 1px 0 rgba(27, 44, 37, 0.07), 0 10px 30px -22px rgba(27, 44, 37, 0.28);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header {
+    background: rgba(247, 248, 242, 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+  }
+}
+
+@media (max-width: 900px) {
+  .head-nav {
+    background: rgba(247, 248, 242, 0.96);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .site-header,
+  .head-nav {
+    background: #f7f8f2;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .site-header {
+    background: #f7f8f2;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-bottom-color: #1c2925;
+  }
+}
+
+/* Typografie: große Überschriften enger, kleine Texte neutral, Fließtext großzügig */
+h1,
+h2 {
+  font-optical-sizing: auto;
+  text-wrap: balance;
+}
+
+.home-hero h1,
+.world h2,
+.home-place h2 {
+  letter-spacing: -0.035em;
+}
+
+.usp-grid h3,
+.home-card h3,
+.try-steps h3,
+.home-points h3 {
+  letter-spacing: -0.02em;
+}
+
+.usp-grid p,
+.home-card p,
+.home-points p,
+.try-steps p,
+.faq-list details p {
+  line-height: 1.65;
+}
+
+.eyebrow {
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 640px) {
+  .home-hero p.lead,
+  .home-card p,
+  .home-points p {
+    font-size: 16px;
+  }
+  .hero-description,
+  .app-intro {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:active,
+  .store-button:active,
+  .buy-app-link:active,
+  .film-toggle:active,
+  .product-selector button:active,
+  .detail-controls button:active,
+  .rooms-demo-controls button:active,
+  .menu-toggle:active,
+  .head-nav .nav-cta:active,
+  .usp-grid > li:active,
+  .feature-card:active,
+  .home-card:active,
+  .use-card:active {
+    transform: none;
+  }
+  .btn-dark:hover,
+  .usp-grid > li:hover,
+  .feature-card:hover {
+    transform: none;
+  }
+  .btn,
+  .store-button,
+  .home-card,
+  .use-card {
+    transition: background-color 160ms ease-out, color 160ms ease-out, opacity 160ms ease-out;
+  }
+}

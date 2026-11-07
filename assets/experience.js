@@ -13,12 +13,12 @@
 
   const reveal = (element) => {
     if (reducedMotion.matches || document.hidden || element.contains(document.activeElement)) return;
-    const delay = Math.min(180, Math.max(0, Number(element.dataset.revealDelay) || 0));
+    const delay = Math.min(90, Math.max(0, Number(element.dataset.revealDelay) || 0));
     try {
       const animation = element.animate([
-        { opacity: 0, translate: '0 18px' },
+        { opacity: 0, translate: '0 10px' },
         { opacity: 1, translate: '0 0' }
-      ], { duration: 620, delay, easing: 'cubic-bezier(.22,.68,0,1)', fill: 'backwards' });
+      ], { duration: 400, delay, easing: 'cubic-bezier(.22,.68,0,1)', fill: 'backwards' });
       animations.set(element, animation);
       const forget = () => {
         if (animations.get(element) === animation) animations.delete(element);
@@ -47,7 +47,7 @@
     document.querySelectorAll('.usp-grid, .setup-grid, .try-steps').forEach((group) => {
       [...group.children].forEach((element, index) => {
         if (!element.hasAttribute('data-reveal-delay')) {
-          element.dataset.revealDelay = String((index % 3) * 65);
+          element.dataset.revealDelay = String((index % 3) * 40);
         }
       });
     });
