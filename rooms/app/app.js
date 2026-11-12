@@ -6,6 +6,7 @@ import { DISPLAY_TYPES, DEFAULT_DISPLAY, getDisplay } from './displays.js';
 import { initDesktopPanel } from './native.js';
 import { initOta, handleOtaEvent, renderOta } from './ota.js';
 import { renderNetMap, pulse } from './netmap.js';
+import { initCalendar, renderCalendar, isLinked, moveRoom, calendarData, replaceCalendar } from './calendar.js';
 import { toBase64 } from './render.js';
 
 const $ = selector => document.querySelector(selector);
@@ -30,6 +31,7 @@ const paths = {
   warning: '<path d="m12 3 10 18H2L12 3Zm0 6v5m0 3v1"/>',
   palette: '<path d="M12 3a9 9 0 1 0 0 18c1.2 0 1.8-.9 1.8-1.8 0-1.6 1-2.2 2.4-2.2H18a3 3 0 0 0 3-3c0-6-4-11-9-11Z"/><circle cx="7.8" cy="11" r=".9"/><circle cx="11" cy="7.4" r=".9"/><circle cx="15.4" cy="8.6" r=".9"/>',
   hash: '<path d="M5 9h14M5 15h14M10 4 8 20M16 4l-2 16"/>',
+  calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18M8 14h3M13 14h3M8 17h3"/>',
 };
 const icon = name => `<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name] || paths.display}</svg>`;
 document.querySelectorAll('[data-icon]').forEach(el => el.replaceWith(Object.assign(document.createElement('span'), { className: el.className, innerHTML: icon(el.dataset.icon) })));
@@ -156,7 +158,7 @@ function renderRooms() {
     const seen = reach.get(room.id), job = currentJob(room.id), busy = isActive(job) || submitting.has(room.id);
     const progress = job?.image ? ({ ack: job.via === 'usb' ? 'USB · Schild aktualisiert' : 'Schild aktualisiert', failed: job.error || 'Keine Empfangsbestätigung' }[job.state] || `Bild wird gesendet · Teil ${job.part}/${job.total}${job.relay ? ' · über Nachbarschild' : ''}${job.attempt > 1 ? ` · Versuch ${job.attempt}` : ''}`) : job ? { queued: job.via === 'usb' ? 'USB · Display wird aktualisiert' : 'In Warteschlange · Funkpause möglich', tx: `Gesendet · warte auf Antwort (${job.attempt || 1}/${job.maxAttempts || 5})`, ack: job.via === 'usb' ? (job.stage === 'rendered' ? 'USB · Display-Treiber aktualisiert' : 'USB · Gerät erreichbar') : 'Empfang bestätigt', failed: job.error || 'Keine Empfangsbestätigung' }[job.state] : sentState(room);
     const current = (!job || !isActive(job)) && progress === 'Auf dem Schild aktuell';
-    return `<article class="room-card${isDraft(room) ? ' draft' : ''}"><div class="room-card-header"><div><h3>${escape(room.content.name)}</h3><p>${escape(room.floor || 'Kein Bereich')}<span>·</span>${isDraft(room) ? 'ohne Schild' : `Schild ${room.id}`}${room.design?.number ? `<span>·</span>Raum ${escape(room.design.number)}` : ''}</p><span class="room-model">${escape(getDisplay(room.displayType).short)}</span></div><span class="status-pill ${room.content.status}"><span class="tiny-dot"></span>${STATUSES[room.content.status]}</span></div><div class="preview-area">${display(room)}</div><span class="room-progress ${job?.state === 'failed' ? 'error' : job?.state === 'ack' || current ? 'ack' : ''}">${escape(progress)}</span>${job?.image && isActive(job) ? `<progress class="part-progress" max="${job.total}" value="${Math.max(0, job.part - 1)}"></progress>` : ''}<div class="room-card-footer"><span class="reachability">${demo && seen ? '<em class="demo-tag">Demo</em>' : ''}${telemetryHtml(seen, true)}</span><div class="card-actions"><button class="icon-button" data-action="ping" data-id="${room.id}" aria-label="${escape(room.content.name)} anpingen" title="Erreichbarkeit prüfen" ${!gateway.canSendTo(room.id) || busy ? 'disabled' : ''}>${icon('signal')}</button><button class="icon-button" data-action="edit" data-id="${room.id}" aria-label="${escape(room.content.name)} bearbeiten" title="Inhalt bearbeiten">${icon('edit')}</button><button class="icon-button" data-action="send" data-id="${room.id}" aria-label="${escape(room.content.name)} senden" title="Inhalt senden" ${!canSend(room) || busy ? 'disabled' : ''}>${icon('send')}</button></div></div></article>`;
+    return `<article class="room-card${isDraft(room) ? ' draft' : ''}"><div class="room-card-header"><div><h3>${escape(room.content.name)}</h3><p>${escape(room.floor || 'Kein Bereich')}<span>·</span>${isDraft(room) ? 'ohne Schild' : `Schild ${room.id}`}${room.design?.number ? `<span>·</span>Raum ${escape(room.design.number)}` : ''}</p><span class="room-model">${escape(getDisplay(room.displayType).short)}</span>${isLinked(room.id) ? `<span class="cal-tag">${icon('calendar')} Kalender</span>` : ''}</div><span class="status-pill ${room.content.status}"><span class="tiny-dot"></span>${STATUSES[room.content.status]}</span></div><div class="preview-area">${display(room)}</div><span class="room-progress ${job?.state === 'failed' ? 'error' : job?.state === 'ack' || current ? 'ack' : ''}">${escape(progress)}</span>${job?.image && isActive(job) ? `<progress class="part-progress" max="${job.total}" value="${Math.max(0, job.part - 1)}"></progress>` : ''}<div class="room-card-footer"><span class="reachability">${demo && seen ? '<em class="demo-tag">Demo</em>' : ''}${telemetryHtml(seen, true)}</span><div class="card-actions"><button class="icon-button" data-action="ping" data-id="${room.id}" aria-label="${escape(room.content.name)} anpingen" title="Erreichbarkeit prüfen" ${!gateway.canSendTo(room.id) || busy ? 'disabled' : ''}>${icon('signal')}</button><button class="icon-button" data-action="edit" data-id="${room.id}" aria-label="${escape(room.content.name)} bearbeiten" title="Inhalt bearbeiten">${icon('edit')}</button><button class="icon-button" data-action="send" data-id="${room.id}" aria-label="${escape(room.content.name)} senden" title="Inhalt senden" ${!canSend(room) || busy ? 'disabled' : ''}>${icon('send')}</button></div></div></article>`;
   }).join('');
   paintCanvases($('#rooms-grid'), key => rooms.find(room => room.id === Number(key)));
   // Neue Schilder: gehört, aber noch keinem Raum zugewiesen.
@@ -294,8 +296,9 @@ function switchView(name) {
   view = name;
   document.querySelectorAll('.view').forEach(el => el.classList.toggle('hidden', el.id !== `view-${name}`));
   document.querySelectorAll('[data-view]').forEach(el => el.classList.toggle('active', el.dataset.view === name));
-  $('#breadcrumb').textContent = { home: 'Übersicht', rooms: 'Räume', design: 'Firmen-Design', activity: 'Übertragungen', settings: 'Sender & Einstellungen' }[name];
+  $('#breadcrumb').textContent = { home: 'Übersicht', rooms: 'Räume', calendar: 'Kalender', design: 'Firmen-Design', activity: 'Übertragungen', settings: 'Sender & Einstellungen' }[name];
   if (name === 'design') renderDesign();
+  if (name === 'calendar') renderCalendar();
   if (name === 'home' || name === 'rooms') renderRooms();
 }
 async function connect() {
@@ -466,6 +469,7 @@ function updatePreview() {
 function openEditor(id = null, presetId = null) {
   editingId = id;
   let room = rooms.find(room => room.id === id);
+  $('#editor-calendar').classList.toggle('hidden', !(id !== null && isLinked(id)));
   if (!room) { let next = presetId ?? (gateway.info?.local_display ? gateway.info.device : 1); while (rooms.some(room => room.id === next)) next = next >= 65534 ? 1 : next + 1; room = { id: next, floor: '', displayType: presetId && reach.get(presetId)?.large ? 'trmnl75' : presetId || gateway.info?.local_display ? 'wirelesspaper12' : DEFAULT_DISPLAY, design: readDesign(), content: { name: '', status: 'free', title: '', host: '', time: '', note: '' } }; }
   $('#editor-title').textContent = id === null ? 'Neues Raumdisplay' : 'Raum bearbeiten';
   for (const field of ['name', 'status', 'title', 'host', 'time', 'note']) $(`#edit-${field}`).value = room.content[field];
@@ -590,6 +594,7 @@ $('#room-form').addEventListener('submit', async event => {
     if (index !== -1 && rooms[index].sent && room.id === editingId) room.sent = rooms[index].sent;
     if (index === -1) rooms.push(room); else rooms[index] = room;
     if (room.id !== editingId) { identifying.delete(room.id); }
+    if (editingId !== null && room.id !== editingId) moveRoom(editingId, room.id);
     if (editingId !== null && room.id !== editingId) { if (signApi) void signApi.unpublish(editingId).catch(() => {}); wlanJobs.delete(editingId); }
     if (editingId !== null) { reach.delete(editingId); for (const [id, job] of jobs) if (job.device === editingId) jobs.delete(id); }
     persist(); renderRooms();
@@ -602,7 +607,7 @@ $('#delete-room').addEventListener('click', () => {
   if (isActive(currentJob(editingId))) return;
   if (!confirm('Diesen Raum aus dem lokalen Workspace entfernen? Das Display selbst wird nicht gelöscht.')) return;
   if (signApi) void signApi.unpublish(editingId).catch(() => {});
-  wlanJobs.delete(editingId);
+  wlanJobs.delete(editingId); moveRoom(editingId, null);
   rooms = rooms.filter(room => room.id !== editingId); persist(); renderRooms(); $('#editor').close(); toast('Raum entfernt.');
 });
 $('#rooms-grid').addEventListener('click', async event => {
@@ -651,7 +656,7 @@ function renderWorkspace() {
 }
 $('#workspace-name').addEventListener('change', event => { workspace = event.target.value.trim() || 'Mein Workspace'; renderWorkspace(); persist(); });
 $('#export').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify({ version: 1, workspace, rooms: realRooms, company }, null, 2)], { type: 'application/json' });
+  const blob = new Blob([JSON.stringify({ version: 1, workspace, rooms: realRooms, company, calendar: calendarData() }, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob), anchor = document.createElement('a'); anchor.href = url; anchor.download = 'workbadge-rooms-backup.json'; anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); toast('Sicherung deiner echten Räume exportiert.');
 });
 $('#import').addEventListener('click', () => {
@@ -662,11 +667,13 @@ $('#import').addEventListener('click', () => {
 $('#import-file').addEventListener('change', async event => {
   try {
     const file = event.target.files[0]; if (!file) return;
-    if (file.size > 512000) throw new Error('Sicherungsdatei ist zu groß.');
-    const data = readBackup(await file.text());
+    if (file.size > 8 * 1024 * 1024) throw new Error('Sicherungsdatei ist zu groß.');
+    const backup = JSON.parse(await file.text()), calendar = backup?.calendar;
+    if (backup && typeof backup === 'object') delete backup.calendar;
+    const data = readBackup(JSON.stringify(backup));
     if (demo || [...jobs.values()].some(isActive)) throw new Error('Import während Demo oder Übertragung nicht möglich.');
     if (rooms.length && !confirm(`Workspace durch die Sicherung mit ${data.rooms.length} Räumen ersetzen?`)) return;
-    rooms = data.rooms; realRooms = rooms; workspace = data.workspace; setCompany(data.company); await refreshLogo(); jobs.clear(); reach.clear(); persist(); renderWorkspace(); renderRooms(); toast('Sicherung importiert.');
+    rooms = data.rooms; realRooms = rooms; workspace = data.workspace; setCompany(data.company); await refreshLogo(); jobs.clear(); reach.clear(); persist(); if (calendar) replaceCalendar(calendar); renderWorkspace(); renderRooms(); toast('Sicherung importiert.');
   } catch (error) { toast(`Import fehlgeschlagen: ${error.message}`, true); }
   finally { event.target.value = ''; }
 });
@@ -733,6 +740,13 @@ if (webEdition) {
   $('#firmware-installer').remove(); $('.ota-panel')?.remove(); $('.lg-wlan')?.remove(); $('#get-desktop').classList.remove('hidden');
 } else initOta({ gateway, toast, addLog });
 renderWorkspace(); renderConnection(); renderLogs();
+initCalendar({
+  rooms: () => rooms, isDemo: () => demo, isDraft, persist, renderRooms, toast, addLog, icon,
+  needsSend: room => !['Auf dem Schild aktuell', 'Bereitgestellt · Schild holt es per WLAN ab'].includes(sentState(room)),
+  canSend, isBusy: room => isActive(currentJob(room.id)) || submitting.has(room.id) || bulkRunning,
+  send: room => send(room, 'update'),
+  fetchCalendar: globalThis.workbadgeDesktop?.calendar ? url => globalThis.workbadgeDesktop.calendar.fetch(url) : null,
+});
 initDesktopPanel({ gateway, connect, renderConnection });
 setInterval(() => { if ((view === 'rooms' || view === 'home') && !$('#editor').open) renderRooms(); }, 30000);
 switchView('home');
