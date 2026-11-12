@@ -2,6 +2,12 @@
 
 Öffentliche Website: https://workbadge.de/ · Hosting: GitHub Pages
 
+## Aktualisierung vom 12. November 2026
+
+- Startseite klarer gegliedert: Auswahl „Welches WorkBadge suchst du?“ direkt nach dem Einstieg – WorkBadge (Namensschild, grün) und WorkBadge Rooms (für Firmen, Graphit/Blau).
+- Entfernt: Hinweisleiste, Vergleichstabelle, Detailansichten, Einrichtungsschritte, doppelter Kontaktbereich, interaktive Rooms-Beispielanzeige.
+- Rooms als eigener Abschnitt am Ende der Startseite mit direktem Weg zu Download und Browser-Version (`/rooms/`). Navigation und Fußzeile verlinken Rooms und den Download.
+
 ## Aktualisierung vom 2. November 2026
 
 - WorkBadge Rooms als eigenständigen Ausblick vor den FAQ integriert, mit einer ausdrücklich gekennzeichneten KI-Konzeptvisualisierung, interaktiver Beispielanzeige und unverbindlicher E-Mail-Anfrage. Noch kein bestellbares Produkt; keine Zusage zu Starttermin oder fertigen Kalenderanbindungen.

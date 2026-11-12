@@ -166,3 +166,48 @@
 @media (prefers-reduced-motion: reduce) {
   .detail-controls button, .rooms-demo-controls button { transition: none; }
 }
+
+/* ---- 2026-11-12: Klare Trennung WorkBadge (grün, persönlich) und WorkBadge Rooms (Graphit/Blau, für Firmen) ---- */
+:root{--rooms-ink:#1d2025;--rooms-ink-2:#2a2f36;--rooms-paper:#eef0ec;--rooms-muted:#a9b0b8;--rooms-signal:#4f7cf0}
+.head-nav .nav-rooms{display:inline-flex;align-items:center;gap:8px}
+.head-nav .nav-rooms:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rooms-signal);flex:none}
+
+.chooser{padding:72px 0 8px}
+.chooser-title{font-size:clamp(30px,3vw,42px);margin-bottom:28px}
+.chooser-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.chooser-card{display:flex;flex-direction:column;gap:10px;min-height:230px;padding:30px 32px;border-radius:var(--radius);border:1px solid var(--line);transition:transform .2s,box-shadow .2s}
+.chooser-card:hover{transform:translateY(-3px);box-shadow:0 18px 30px -22px #1c292566}
+.chooser-for{font-size:12px;font-weight:600;letter-spacing:.2px}
+.chooser-card strong{font-size:clamp(28px,2.6vw,36px);font-weight:500;letter-spacing:-.04em;line-height:1.1}
+.chooser-text{font-size:14px;line-height:1.7;max-width:44ch}
+.chooser-link{margin-top:auto;padding-top:14px;font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:5px}
+.chooser-badge{background:var(--mint);border-color:#cbdcc3;color:var(--ink)}
+.chooser-badge .chooser-for{color:var(--accent)}.chooser-badge .chooser-text{color:#4b5d50}
+.chooser-rooms{background:var(--rooms-ink);border-color:var(--rooms-ink);color:var(--rooms-paper)}
+.chooser-rooms .chooser-for{color:#9fb6f5}.chooser-rooms .chooser-text{color:var(--rooms-muted)}
+.chooser-rooms:focus-visible{outline-color:var(--rooms-signal)}
+
+.rooms-band{padding:96px 0;background:var(--rooms-ink);color:var(--rooms-paper)}
+.rooms-band-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:72px;align-items:center}
+.rooms-kicker{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#9fb6f5}
+.rooms-dot{width:8px;height:8px;border-radius:50%;background:var(--rooms-signal)}
+.rooms-band h2{margin-top:18px;color:#fff}
+.rooms-band-lead{margin-top:20px;font-size:16px;color:#c9ced4;max-width:46ch}
+.rooms-facts{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid #ffffff1f}
+.rooms-facts li{padding:14px 0;border-bottom:1px solid #ffffff1f;font-size:14px;color:var(--rooms-muted);line-height:1.6}
+.rooms-facts strong{color:#fff;font-weight:600}
+.rooms-band-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.rooms-btn{display:inline-flex;align-items:center;min-height:50px;padding:0 22px;border-radius:6px;border:1px solid #ffffff55;font-size:13px;font-weight:600;color:#fff;transition:background .2s,border-color .2s}
+.rooms-btn:hover{border-color:#fff;background:#ffffff12}
+.rooms-btn-primary{background:#fff;color:var(--rooms-ink);border-color:#fff}
+.rooms-btn-primary:hover{background:#dfe6fb;border-color:#dfe6fb}
+.rooms-band a:focus-visible{outline:3px solid var(--rooms-signal);outline-offset:4px}
+.rooms-band-note{margin-top:18px;font-size:13px;color:var(--rooms-muted)}
+.rooms-band-note a{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.rooms-band-photo{margin:0}
+.rooms-band-photo img{width:100%;height:auto;border-radius:14px;border:1px solid #ffffff1a}
+.rooms-band-photo figcaption{margin-top:10px;font-size:11px;color:#8d949c}
+
+@media(max-width:900px){.rooms-band-grid{grid-template-columns:1fr;gap:40px}.rooms-band{padding:72px 0}}
+@media(max-width:680px){.chooser{padding:52px 0 0}.chooser-grid{grid-template-columns:1fr;gap:14px}.chooser-card{min-height:0;padding:24px}.rooms-band{padding:60px 0}.rooms-btn{flex:1 1 100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.chooser-card:hover{transform:none}}
